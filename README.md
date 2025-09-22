@@ -38,7 +38,7 @@
 
 ## 필수 구현 기능
 
-- 피그마를 보고 [결과화면](https://react-messenger-20th-jw.vercel.app/)과 같이 구현합니다.
+- 피그마를 보고 [결과화면](https://react-messenger-21th-kwondu.vercel.app/)과 같이 구현합니다.
 - 디자인 시스템을 구축합니다.
 - tailwind CSS를 사용합니다.
 - 메세지를 보내면 채팅방 하단으로 스크롤을 이동시킵니다.
