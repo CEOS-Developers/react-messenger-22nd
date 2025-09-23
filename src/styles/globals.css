@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@import "@/styles/fonts.css";
+
+* {
+  /* pretendard 폰트가 없으면 오른쪽 시스템 폰트들 순차대로 사용 */
+  font-family: "Pretendard", ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme {
+  /* 색상 */
+  /* Gray */
+  --color-gray-0: #FFFFFF;
+  --color-gray-1: #FCFCFC;
+  --color-gray-2: #F5F5F5;
+  --color-gray-3: #EBEBEB;
+  --color-gray-4: #D8D8D8;
+  --color-gray-5: #A4A4A4;
+  --color-gray-6: #777777;
+  --color-gray-7: #1B1A1F;
+
+  /* Green */
+  --color-green-1: #A3ED98;
+  --color-green-2: #9BE084;
+  --color-green-3: #06C755;
+  --color-green-4: #2DC263;
+  --color-green-5: #4F9669;
+
+  /* 기본 택스트 색상 (검정) */
+  --color-primary: #1B1A1F;
+}
+
+/* 커스텀 타이포그래피 유틸리티 */
+@utility text-headline1 {
+  font-size: var(--text-headline1);
+  font-weight: var(--text-headline1--font-weight);
+  line-height: var(--text-headline1--line-height);
+  letter-spacing: var(--text-headline1--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-headline2 {
+  font-size: var(--text-headline2);
+  font-weight: var(--text-headline2--font-weight);
+  line-height: var(--text-headline2--line-height);
+  letter-spacing: var(--text-headline2--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-body1 {
+  font-size: var(--text-body1);
+  font-weight: var(--text-body1--font-weight);
+  line-height: var(--text-body1--line-height);
+  letter-spacing: var(--text-body1--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-body2-sb {
+  font-size: var(--text-body2-sb);
+  font-weight: var(--text-body2-sb--font-weight);
+  line-height: var(--text-body2-sb--line-height);
+  letter-spacing: var(--text-body2-sb--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-body2-m {
+  font-size: var(--text-body2-m);
+  font-weight: var(--text-body2-m--font-weight);
+  line-height: var(--text-body2-m--line-height);
+  letter-spacing: var(--text-body2-m--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-body3-m1 {
+  font-size: var(--text-body3-m1);
+  font-weight: var(--text-body3-m1--font-weight);
+  line-height: var(--text-body3-m1--line-height);
+  letter-spacing: var(--text-body3-m1--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-body3-m2 {
+  font-size: var(--text-body3-m2);
+  font-weight: var(--text-body3-m2--font-weight);
+  line-height: var(--text-body3-m2--line-height);
+  letter-spacing: var(--text-body3-m2--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-body3-r {
+  font-size: var(--text-body3-r);
+  font-weight: var(--text-body3-r--font-weight);
+  line-height: var(--text-body3-r--line-height);
+  letter-spacing: var(--text-body3-r--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-caption1-r {
+  font-size: var(--text-caption1-r);
+  font-weight: var(--text-caption1-r--font-weight);
+  line-height: var(--text-caption1-r--line-height);
+  letter-spacing: var(--text-caption1-r--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-caption2 {
+  font-size: var(--text-caption2);
+  font-weight: var(--text-caption2--font-weight);
+  line-height: var(--text-caption2--line-height);
+  letter-spacing: var(--text-caption2--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-caption3-m {
+  font-size: var(--text-caption3-m);
+  font-weight: var(--text-caption3-m--font-weight);
+  line-height: var(--text-caption3-m--line-height);
+  letter-spacing: var(--text-caption3-m--letter-spacing);
+  color: var(--color-primary);
+}
+
+@utility text-caption3-r {
+  font-size: var(--text-caption3-r);
+  font-weight: var(--text-caption3-r--font-weight);
+  line-height: var(--text-caption3-r--line-height);
+  letter-spacing: var(--text-caption3-r--letter-spacing);
+  color: var(--color-primary);
+}
