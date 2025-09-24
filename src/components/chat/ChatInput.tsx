@@ -15,7 +15,8 @@ type ChatInputProps = {
     placeholder?: string;
 };
 
-const ChatInput = ({value, onChange, onSend, onKeyboard, onAdd,  placeholder = "메시지 보내기",}: ChatInputProps) => {
+const ChatInput = ({value, onChange, onSend, onKeyboard, onAdd,  placeholder = "메시지 보내기",}:
+                   ChatInputProps) => {
 
     const [composing, setComposing] = useState(false);
     const taRef = useRef<HTMLTextAreaElement>(null);
