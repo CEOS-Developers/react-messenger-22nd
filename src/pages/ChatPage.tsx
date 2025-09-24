@@ -56,6 +56,12 @@ export default function ChatPage() {
                     onMenu={() => {}}
                 />
 
+                {/* 날짜 배지 */}
+                <div className="px-3 pt-3">
+                    <div className="mx-auto w-fit text-[11px] bg-[#D9D9D9]/60 text-slate-600 px-3 py-1 rounded-full">
+                        {todayMD}
+                    </div>
+                </div>
 
                 {/* 보낸 메세지 위에서부터 나열 */}
                 <div className="flex-1 overflow-auto px-3 py-4 space-y-3">
