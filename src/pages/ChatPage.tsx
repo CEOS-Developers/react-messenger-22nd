@@ -45,9 +45,8 @@ export default function ChatPage() {
         setValue("");
     };
 
-
     return (
-        <div className="min-h-screen bg-slate-200 flex items-start justify-center p-6">
+        <div className="min-h-screen bg-slate-200 flex items-start">
             <div className="w-[375px] h-[812px] bg-[#ECEEF4] rounded-3xl shadow flex flex-col overflow-hidden">
                 {/* 헤더 */}
                 <ChatHeader
@@ -56,6 +55,22 @@ export default function ChatPage() {
                     onSearch={() => {}}
                     onMenu={() => {}}
                 />
+
+
+                {/* 보낸 메세지 위에서부터 나열 */}
+                <div className="flex-1 overflow-auto px-3 py-4 space-y-3">
+                    {messages.map((m) => (
+                        <ChatText
+                            key={m.id}
+                            text={m.text}
+                            sentAt={m.sentAt}
+                            isMe={m.isMe}
+                            readBy={m.readBy}
+                            totalPeople={numPeople}
+                            // senderName="장희연" showName
+                        />
+                    ))}
+                </div>
 
 
                 <ChatInput
