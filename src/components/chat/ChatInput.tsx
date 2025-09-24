@@ -51,6 +51,9 @@ const ChatInput = ({value, onChange, onSend, onKeyboard, onAdd,  placeholder = "
                     onChange={(e) => onChange(e.target.value)}
                     onKeyDown={onKeyDown}
                     placeholder={placeholder}
+                    //한글 입력시 오류방지
+                    onCompositionStart={() => setComposing(true)}
+                    onCompositionEnd={() => setComposing(false)}
                     rows={1}
                     className="flex ml-[10px] "
                 />
