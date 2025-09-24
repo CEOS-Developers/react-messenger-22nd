@@ -32,4 +32,17 @@ export default function ChatPage() {
         }
     ]);
 
+    const handleSend = (text: string) => {
+        const id =
+            typeof crypto !== "undefined" && "randomUUID" in crypto
+                ? crypto.randomUUID()
+                : `${Date.now()}_${Math.random()}`;
+        //새 메세지 배열에 추가
+        setMessages(prev => [
+            ...prev,
+            { id, text, isMe: true, sentAt: Date.now(), readBy: 1, date: todayMD} //기본으로 1명 읽음으로 세팅
+        ]);
+        setValue("");
+    };
+
 }
