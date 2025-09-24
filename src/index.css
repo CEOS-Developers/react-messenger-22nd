@@ -3,18 +3,20 @@
 @import './styles/typography.css';
 
 @layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  html,
-  body,
-  #root {
-    height: 100%;
-  }
   body {
-    @apply m-0 font-sans;
+    margin: 0;
+    font-family:
+      'Pretendard Variable',
+      'Pretendard',
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      Roboto,
+      'Noto Sans KR',
+      'Apple SD Gothic Neo',
+      'Helvetica Neue',
+      Arial,
+      sans-serif;
     background: var(--gray-100);
     color: var(--black);
   }
