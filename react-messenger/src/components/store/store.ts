@@ -8,4 +8,3 @@ const useStore = create((set) => ({
 }));
 
 export default useStore;
-출처: https://ldd6cr-adness.tistory.com/297 [🥔감자의 오묘한 개발🥔:티스토리]
