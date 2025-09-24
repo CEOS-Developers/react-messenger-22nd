@@ -27,7 +27,7 @@ export default function ChatText({text, sentAt, isMe, readBy, totalPeople, sende
                     <div className="text-[11px] text-slate-500 mb-1">{senderName}</div>
                 )}
                 {/*유저가 보낸 문자일떄 row-reverse, 시간을 안쪽에 표기*/}
-                <div className={`flex items-end gap-1`}>
+                <div className={`flex items-end gap-1 ${isMe ? "flex-row-reverse" : ""}`}>
                     {/* 말풍선 */}
                     <div
                         className={[
