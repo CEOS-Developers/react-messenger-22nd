@@ -11,11 +11,11 @@ type ChatInputProps = {
     onSend: (v: string) => void;
     onImageSend: (file: File) => void;
     onAdd: () => void;
-    onKeyboard: () => void;
+    onEmoji: () => void;
     placeholder?: string;
 };
 
-const ChatInput = ({value, onChange, onSend, onKeyboard, onAdd,  placeholder = "메시지 보내기",}:
+const ChatInput = ({value, onChange, onSend, onEmoji, onAdd,  placeholder = "메시지 보내기",}:
                    ChatInputProps) => {
 
     const [composing, setComposing] = useState(false);
@@ -24,9 +24,8 @@ const ChatInput = ({value, onChange, onSend, onKeyboard, onAdd,  placeholder = "
     useEffect(() => {
         const el = taRef.current;
         if (!el) return;
-        el.style.height = 'auto';            // <-- 여기!
-        const max = 48;                      // 2줄 * 24px (line-height)
-        el.style.height = Math.min(max, el.scrollHeight) + 'px';
+        el.style.height = 'auto';
+        el.style.height = Math.min(48, el.scrollHeight) + 'px';
     }, [value]);
     const trySend = () => {
         const msg = value.trim();
@@ -61,10 +60,11 @@ const ChatInput = ({value, onChange, onSend, onKeyboard, onAdd,  placeholder = "
                     onCompositionStart={() => setComposing(true)}
                     onCompositionEnd={() => setComposing(false)}
                     rows={1}
-                    className="flex ml-[10px] "
+                    //입력창 기본 테두리, 스크롤바 등 모두 제거
+                    className="flex w-[240px] ml-[10px] outline-none resize-none appearance-none overflow-hidden"
                 />
 
-                <button type="button" onClick={onKeyboard} className="ml-auto">
+                <button type="button" onClick={onEmoji} className="ml-auto">
                     <img src={EmojiBtn} className="w-6 h-6 block" alt="emoji" />
                 </button>
             </div>
