@@ -21,14 +21,13 @@ const ChatInput = ({value, onChange, onSend, onKeyboard, onAdd,  placeholder = "
     const [composing, setComposing] = useState(false);
     const taRef = useRef<HTMLTextAreaElement>(null);
 
-    //자동으로 높이조절
     useEffect(() => {
         const el = taRef.current;
         if (!el) return;
-        el.style.height = "0px";
-        el.style.height = Math.min(120, el.scrollHeight) + "px";
+        el.style.height = 'auto';            // <-- 여기!
+        const max = 48;                      // 2줄 * 24px (line-height)
+        el.style.height = Math.min(max, el.scrollHeight) + 'px';
     }, [value]);
-
     const trySend = () => {
         const msg = value.trim();
         if (!msg) return;
