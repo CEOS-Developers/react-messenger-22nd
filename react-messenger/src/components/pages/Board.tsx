@@ -4,5 +4,5 @@ export default function Board() {
       <h1 className="text-xl font-bold">홈 화면</h1>
       <p>Board Page</p>
     </div>
-  )
+  );
 }

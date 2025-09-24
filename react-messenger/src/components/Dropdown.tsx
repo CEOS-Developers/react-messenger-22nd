@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import '../App.css'
+import "../App.css";
 
 type DropdownProps = {
   data: string[];
   value?: string;
   onChange?: (val: string) => void;
   /* 닫힌(선택 표시) 상태 배경: 'white' | 'gray' */
-  surface?: 'white' | 'gray';
+  surface?: "white" | "gray";
   className?: string;
 };
 
@@ -14,12 +14,12 @@ export default function Dropdown({
   data,
   value,
   onChange,
-  surface = 'white',
-  className = '',
+  surface = "white",
+  className = "",
 }: DropdownProps) {
   const list = data ?? [];
   const [open, setOpen] = useState(false);
-  const [internal, setInternal] = useState(list[0] ?? '');
+  const [internal, setInternal] = useState(list[0] ?? "");
   const selected = value ?? internal;
 
   const ref = useRef<HTMLDivElement | null>(null);
@@ -29,8 +29,8 @@ export default function Dropdown({
     const onDown = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     };
-    document.addEventListener('mousedown', onDown);
-    return () => document.removeEventListener('mousedown', onDown);
+    document.addEventListener("mousedown", onDown);
+    return () => document.removeEventListener("mousedown", onDown);
   }, []);
 
   const setSelected = (v: string) => {
@@ -39,8 +39,7 @@ export default function Dropdown({
     setOpen(false);
   };
 
-  const surfaceClass =
-    surface === 'gray' ? 'bg-[#F2F2F2]' : 'bg-white';
+  const surfaceClass = surface === "gray" ? "bg-[#F2F2F2]" : "bg-white";
 
   return (
     <div ref={ref} className={`relative ${className}`}>
@@ -59,9 +58,7 @@ export default function Dropdown({
       >
         <span className="truncate">{selected}</span>
         <span
-          className={`ml-[10px] text-neutral-500 transition-transform ${
-            open ? 'rotate-180' : ''
-          }`}
+          className={`ml-[10px] text-neutral-500 transition-transform ${open ? "rotate-180" : ""}`}
           aria-hidden
         >
           ⌵
@@ -74,9 +71,9 @@ export default function Dropdown({
         className={`absolute left-0 z-10 w-[336px]
         mt-[10px] rounded-md bg-[#FEFEFE]
         text-sm shadow-md overflow-y-auto
-        transition-all ${open ? 'max-h-[200px] border border-[#CCCCCC]' : 'max-h-0 border-0'}
+        transition-all ${open ? "max-h-[200px] border border-[#CCCCCC]" : "max-h-0 border-0"}
         `}
-        style={{ top: '38px' }}
+        style={{ top: "38px" }}
       >
         {list.map((item) => {
           const active = item === selected;
@@ -87,7 +84,7 @@ export default function Dropdown({
               aria-selected={active}
               onClick={() => setSelected(item)}
               className={`px-[10px] py-2 cursor-pointer
-              ${active ? 'bg-white' : ''}
+              ${active ? "bg-white" : ""}
               hover:text-white hover:rounded
               hover:bg-gradient-to-br hover:from-[#5658DF] hover:to-[#2F6DD0]
               transition-colors`}
@@ -100,6 +97,3 @@ export default function Dropdown({
     </div>
   );
 }
-
-
-

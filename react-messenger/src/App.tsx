@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Home from "./components/pages/Home";
+import Chat from "./components/pages/Chat";
+import Board from "./components/pages/Board";
+import Benefit from "./components/pages/Benefit";
+import TimeTable from "./components/pages/TimeTable";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="iPhone-frame">
+      <BrowserRouter>
+        <div className="h-full flex flex-col">
+          {/* 메인 컨텐츠 */}
+          <div className="flex-1 overflow-y-auto">
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/board" element={<Board />} />
+              <Route path="/benefit" element={<Benefit />} />
+              <Route path="/timetable" element={<TimeTable />} />
+
+              {/* <Route path="/chat/loading/:roomId" element={<ChatLoading />} />
+              <Route path="/chat/room/:roomId" element={<ChatRoom />} /> */}
+
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </div>
+
+          {/* 네비게이션 바 */}
+          <NavBar />
+
+          {/* 고정 홈버튼 */}
+          <div className="flex justify-center py-0">
+            <img src="/icons/HomeButton.svg" alt="home-button" className="w-full h-2" />
+          </div>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
