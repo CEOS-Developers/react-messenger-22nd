@@ -9,7 +9,7 @@ type Message = {
     text: string;
     isMe: boolean;
     sentAt: number;
-    readBy: number; // 보낸 직후: 1(나만 읽음) → 기본 '안 읽음' 상태
+    readBy: number; //추가 확장 필요, 현재 임의로 값 부여
     date: string;
 };
 
