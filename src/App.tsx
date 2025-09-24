@@ -1,35 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+// src/App.tsx
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="grid min-h-screen place-items-center bg-white">
+      {/* 고정 폭(반응형 제외), 중앙 정렬 컨테이너 */}
+      <div className="flex h-screen w-full max-w-[420px] flex-col border bg-white">
+        {/* 상단 헤더 */}
+        <header className="flex h-12 items-center border-b px-4 font-semibold">react-messenger</header>
 
-export default App
+        {/* 본문(메시지 영역) */}
+        <main className="min-h-0 flex-1 overflow-y-auto p-4">{/* TODO: <MessageList /> 붙일 자리 */}</main>
+
+        {/* 하단 입력 영역 */}
+        <footer className="border-t">{/* TODO: <MessageInput /> 붙일 자리 */}</footer>
+      </div>
+    </div>
+  );
+}
