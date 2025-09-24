@@ -40,7 +40,7 @@ export default function ChatText({text, sentAt, isMe, readBy, totalPeople, sende
                         {text}
                     </div>
 
-                    {/* 시간/읽음: 한 줄 고정, 줄바꿈/축소 방지 */}
+                    {/* 시간/읽음: 한 줄 고정 줄바꿈/축소 방지 */}
                     <div className="text-[11px] text-slate-400 whitespace-nowrap shrink-0">
                         {isMe && (unread > 0 ? unread : "읽음")}
                         <span className="ml-1">{fmtTime(sentAt)}</span>

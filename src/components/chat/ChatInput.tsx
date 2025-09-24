@@ -61,7 +61,7 @@ const ChatInput = ({value, onChange, onSend, onEmoji, onAdd,  placeholder = "메
                     onCompositionEnd={() => setComposing(false)}
                     rows={1}
                     //입력창 기본 테두리, 스크롤바 등 모두 제거
-                    className="flex w-[240px] ml-[10px] outline-none resize-none appearance-none overflow-hidden"
+                    className="flex w-[240px] ml-[10px] outline-none resize-none appearance-none overflow-auto no-scrollbar"
                 />
 
                 <button type="button" onClick={onEmoji} className="ml-auto">

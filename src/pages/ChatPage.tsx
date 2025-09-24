@@ -14,7 +14,7 @@ type Message = {
 };
 
 export default function ChatPage() {
-    const [name] = useState("그룹메세지");
+    const [name] = useState("그룹 메세지");
     const [numPeople] = useState(3);
     const [value, setValue] = useState("");
     const todayMD = useTodayMD(); //날짜
@@ -47,7 +47,7 @@ export default function ChatPage() {
 
     return (
         <div className="min-h-screen bg-slate-200 flex items-start justify-center p-6">
-            <div className="w-[375px] h-[812px] bg-[#ECEEF4] rounded-3xl shadow flex flex-col overflow-hidden">
+            <div className="w-[375px] h-[812px] bg-[#ECEEF4] rounded-3xl shadow flex flex-col">
                 {/* 헤더 */}
                 <ChatHeader
                     name={name}
@@ -64,7 +64,7 @@ export default function ChatPage() {
                 </div>
 
                 {/* 보낸 메세지 위에서부터 나열 */}
-                <div className="flex-1 overflow-auto px-3 py-4 space-y-3">
+                <div className="flex-1 overflow-auto no-scrollbar px-3 py-4 space-y-3 ">
                     {messages.map((m) => (
                         <ChatText
                             key={m.id}
@@ -84,7 +84,7 @@ export default function ChatPage() {
                     onChange={setValue}
                     onSend={handleSend}
                     onImageSend={() => {}}
-                    onKeyboard={() => {}}
+                    onEmoji={() => {}}
                     onAdd={() => {}}
                 />
             </div>
