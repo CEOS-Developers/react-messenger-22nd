@@ -45,4 +45,28 @@ export default function ChatPage() {
         setValue("");
     };
 
+
+    return (
+        <div className="min-h-screen bg-slate-200 flex items-start justify-center p-6">
+            <div className="w-[375px] h-[812px] bg-[#ECEEF4] rounded-3xl shadow flex flex-col overflow-hidden">
+                {/* 헤더 */}
+                <ChatHeader
+                    name={name}
+                    numPeople={numPeople}
+                    onSearch={() => {}}
+                    onMenu={() => {}}
+                />
+
+
+                <ChatInput
+                    value={value}
+                    onChange={setValue}
+                    onSend={handleSend}
+                    onImageSend={() => {}}
+                    onKeyboard={() => {}}
+                    onAdd={() => {}}
+                />
+            </div>
+        </div>
+    );
 }
