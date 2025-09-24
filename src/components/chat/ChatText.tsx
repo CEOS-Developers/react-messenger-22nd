@@ -21,17 +21,17 @@ export default function ChatText({text, sentAt, isMe, readBy, totalPeople, sende
     const unread = totalPeople - readBy;
 
     return (
-        <div className={`flex ${isMe ? "justify-end" : "justify-start"} items-end`}>
-            <div className="flex max-w-[75%]">
+        <div className={`flex ${isMe ? "justify-end" : "justify-start"} items-end min-w-0`}>
+            <div className="flex max-w-[75%] min-w-0">
                 {!isMe && senderName && (
                     <div className="text-[11px] text-slate-500 mb-1">{senderName}</div>
                 )}
                 {/*유저가 보낸 문자일떄 row-reverse, 시간을 안쪽에 표기*/}
-                <div className={`flex items-end gap-1 ${isMe ? "flex-row-reverse" : ""}`}>
+                <div className={`flex items-end gap-1 ${isMe ? "flex-row-reverse" : ""} min-w-0`}>
                     {/* 말풍선 */}
                     <div
                         className={[
-                            "px-3 py-2 rounded-2xl whitespace-pre-wrap break-words",
+                            "min-w-0 px-3 py-2 rounded-2xl whitespace-pre-wrap break-words",
                             isMe
                                 ? "bg-indigo-200 text-slate-900 rounded-br-sm"
                                 : "bg-white text-slate-900 rounded-bl-sm shadow",
