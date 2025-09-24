@@ -17,7 +17,7 @@ const ChatHeader = ({ name, numPeople, onSearch, onMenu }: Props) => {
     return (
         <div className="flex-column w-[375px] h-[96px] mx-auto items-center justify-center-safe bg-white">
             <div className="h-[53px] flex items-center justify-center-safe">
-                IPhone Banner Placeholder
+                아이폰 배너
             </div>
             <div className="flex w-[343px] h-[26px] mx-auto items-center bg-white ">
                 <img src={Prev} className={"w-[24px] h-[24px] cursor-pointer"} alt="prev" />
