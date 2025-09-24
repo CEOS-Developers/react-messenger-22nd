@@ -1,20 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 // import Home from "@/pages/Home"
 import ChatRoom from "@/pages/ChatRoom"
+import Layout from "@/components/layout/Layout"
 
 const App = () => {
 
   return (
-    <div className="min-h-screen bg-[#F5F5F5] flex justify-center">
-      <div className="w-[375px] min-h-screen bg-white shadow-2xl">
-        <BrowserRouter>
-          <Routes>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout/>}>
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/" element={<ChatRoom />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </div>
+          </Route>
+        </Routes>
+      </BrowserRouter>
   )
 }
 
