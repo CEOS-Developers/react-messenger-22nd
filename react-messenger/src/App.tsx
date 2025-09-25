@@ -6,6 +6,7 @@ import Chat from "./components/pages/Chat";
 import Board from "./components/pages/Board";
 import Benefit from "./components/pages/Benefit";
 import TimeTable from "./components/pages/TimeTable";
+import ChatRoom from "./components/pages/ChatRoom";
 
 function App() {
   return (
@@ -17,13 +18,10 @@ function App() {
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/chat" element={<Chat />} />
+              <Route path="/chat/:roomId" element={<ChatRoom />} />
               <Route path="/board" element={<Board />} />
               <Route path="/benefit" element={<Benefit />} />
               <Route path="/timetable" element={<TimeTable />} />
-
-              {/* <Route path="/chat/loading/:roomId" element={<ChatLoading />} />
-              <Route path="/chat/room/:roomId" element={<ChatRoom />} /> */}
-
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

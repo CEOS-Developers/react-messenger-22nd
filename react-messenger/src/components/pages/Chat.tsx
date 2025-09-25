@@ -13,7 +13,7 @@ const ROOM = [
   { id: "room-product", title: "제품폭팩터스튜디오(1)", name: "임동균" },
 ];
 
-export default function ChatList() {
+export default function Chat() {
   const nav = useNavigate();
   const [semester, setSemester] = useState(semesters[0]);
 
@@ -23,7 +23,6 @@ export default function ChatList() {
       <header className="px-5 pt-3 pb-2">
         {/* 타이틀 줄 */}
         <div className="flex items-center justify-between">
-          <h1 className="text-[22px] font-semibold text-neutral-900">강의실</h1>
           {/* 우측 프로필/설정 아이콘 (플레이스홀더) */}
           <button
             type="button"
@@ -40,10 +39,10 @@ export default function ChatList() {
         </div>
 
         {/* 탭 (비활성 톤) */}
-        <div className="mt-1 flex items-center gap-3 text-neutral-400 text-[15px]">
-          <span className="font-semibold text-neutral-900">강의실</span>
-          <span>그룹챗</span>
-          <span>쪽지</span>
+        <div className="mt-1 flex items-center gap-3 m-2 font-semibold text-neutral-400 text-[19px]">
+          <span className="text-neutral-900">강의실</span>
+          <span className="text-neutral-200">그룹챗</span>
+          <span className="text-neutral-200">쪽지</span>
         </div>
         <Dropdown
           data={semesters}
