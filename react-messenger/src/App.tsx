@@ -1,5 +1,11 @@
+import ChatRoom from "./pages/ChatRoom";
+
 function App() {
-  return <div className="font-sans text-2xl text-gray-800 p-6">확인</div>;
+  return (
+    <div className="w-[375px] h-[812px]">
+      <ChatRoom />
+    </div>
+  );
 }
 
 export default App;
