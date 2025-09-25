@@ -2,8 +2,22 @@
 @import "tailwindcss";
 @import "./styles/theme.css";
 
+@layer utilities {
+  .grid-cols-16 {
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+  }
+
+  .app-frame {
+    @apply mx-auto w-[375px] h-[812px] bg-white;
+  }
+
+  .app-grid {
+    @apply grid grid-cols-16 gap-2 h-full;
+  }
+}
+
 @layer base {
   body {
-    @apply bg-white text-black font-sans;
+    @apply font-sans text-black bg-white app-frame app-grid;
   }
 }
