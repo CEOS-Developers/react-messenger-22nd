@@ -10,7 +10,7 @@ const App = () => {
         <Routes>
           <Route element={<Layout/>}>
             <Route path="/home" element={<Home />} />
-            <Route path="/" element={<ChatRoom />} />
+            <Route path="/chatroom/:chatRoomId" element={<ChatRoom />} />
           </Route>
         </Routes>
       </BrowserRouter>

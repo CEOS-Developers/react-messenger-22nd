@@ -1,0 +1,76 @@
+[
+  {
+    "id": "1",
+    "userId": "user2",
+    "content": "엄마 의자 넘 편해요 ㅎㅎ",
+    "timestamp": "2025-09-09T14:12:00.000Z",
+    "date": "2025년 9월 9일"
+  },
+  {
+    "id": "2",
+    "userId": "user2",
+    "content": "감사합니다아 ><",
+    "timestamp": "2025-09-09T14:12:30.000Z"
+  },
+  {
+    "id": "3",
+    "userId": "user1",
+    "content": "잘 골랐네 굿굿",
+    "timestamp": "2025-09-09T14:14:00.000Z"
+  },
+  {
+    "id": "4",
+    "userId": "user1",
+    "content": "울 댕이 편하다니 좋네",
+    "timestamp": "2025-09-09T14:15:00.000Z"
+  },
+  {
+    "id": "5",
+    "userId": "user1",
+    "content": "오늘도 의자만큼 편한 하루 보내~",
+    "timestamp": "2025-09-09T14:15:30.000Z"
+  },
+  {
+    "id": "6",
+    "userId": "user2",
+    "content": "헤헤 넹!!",
+    "timestamp": "2025-09-09T14:21:00.000Z"
+  },
+  {
+    "id": "7",
+    "userId": "user2",
+    "content": "엄마 홍천 여행 몇시에 출발하는거예여?",
+    "timestamp": "2025-09-14T11:20:00.000Z",
+    "date": "2025년 9월 14일"
+  },
+  {
+    "id": "8",
+    "userId": "user2",
+    "content": "저 그날 아침에 수업 휴강을 안한대서 ㅜ",
+    "timestamp": "2025-09-14T11:20:30.000Z"
+  },
+  {
+    "id": "9",
+    "userId": "user2",
+    "content": "10시부터 1시..",
+    "timestamp": "2025-09-14T11:20:45.000Z"
+  },
+  {
+    "id": "10",
+    "userId": "user1",
+    "content": "이긍 빨간 날인데 휴강을 안해?",
+    "timestamp": "2025-09-14T11:27:00.000Z"
+  },
+  {
+    "id": "11",
+    "userId": "user2",
+    "content": "그런가바여",
+    "timestamp": "2025-09-14T11:28:00.000Z"
+  },
+  {
+    "id": "12",
+    "userId": "user2",
+    "content": "보강하기 힘들어서",
+    "timestamp": "2025-09-14T11:28:30.000Z"
+  }
+]

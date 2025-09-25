@@ -1,0 +1,12 @@
+[
+  {
+    "id": "user1",
+    "name": "마밍",
+    "profile": "@/assets/svgs/chatroom/default-profile.svg"
+  },
+  {
+    "id": "user2",
+    "name": "나",
+    "profile": "@/assets/svgs/chatroom/default-profile.svg"
+  }
+]
