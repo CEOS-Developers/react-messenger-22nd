@@ -3,15 +3,10 @@ import { useTodayMD } from '@/hooks/todayDate';
 import ChatHeader from "@/components/chat/ChatHeader";
 import ChatInput from "@/components/chat/ChatInput";
 import ChatText from "@/components/chat/ChatText";
+import {generateMessage} from "@/hooks/generateMsg";
+import {persist} from "@/hooks/store";
+import {Message} from "@/hooks/generateMsg";
 
-type Message = {
-    id: string;
-    text: string;
-    isMe: boolean; //추가 확장 필요, 현재 임의로 값 부여
-    sentAt: number;
-    readBy: number; //추가 확장 필요, 현재 임의로 값 부여
-    date: string;
-};
 
 export default function ChatPage() {
     const [name] = useState("그룹 메세지");
@@ -32,31 +27,17 @@ export default function ChatPage() {
         }
     ]);
 
-    function getId() {
-        const msgId =
-            typeof crypto !== "undefined" && "randomUUID" in crypto
-                ? crypto.randomUUID()
-                : `${Date.now()}_${Math.random()}`;
-        return msgId;
-    }
-
-    const persist = useCallback(
-        (msg: Message) => {
-            sessionStorage.setItem(`msg:${msg.id}`, JSON.stringify(msg));
-        },
-        []
-    );
 
     const handleSend = (text: string) => {
-        const id = getId();
-        const nextMsg = { id, text, isMe: true, sentAt: Date.now(), readBy: 1, date: todayMD};
+        //메세지 반환
+        const nextMsg = generateMessage(text, todayMD, {isMe: true, readBy: 1});
         //새 메세지 배열에 추가
         setMessages(prev => [
             ...prev,
-            { id, text, isMe: true, sentAt: Date.now(), readBy: 1, date: todayMD} //기본으로 1명 읽음으로 세팅
+            nextMsg //기본으로 1명 읽음으로 세팅
         ]);
         persist(nextMsg);
-        console.log(sessionStorage.getItem(`msg:${nextMsg.id}`));
+        //console.log(sessionStorage.getItem(`msg:${nextMsg.id}`));
         setValue("");
     };
 
@@ -88,7 +69,6 @@ export default function ChatPage() {
                             isMe={m.isMe}
                             readBy={m.readBy}
                             totalPeople={numPeople}
-                            // senderName="장희연" showName
                         />
                     ))}
                 </div>
