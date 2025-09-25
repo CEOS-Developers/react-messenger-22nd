@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useTodayMD } from '@/hooks/todayDate';
 import ChatHeader from "@/components/chat/ChatHeader";
 import ChatInput from "@/components/chat/ChatInput";
@@ -32,11 +32,16 @@ export default function ChatPage() {
         }
     ]);
 
-    const handleSend = (text: string) => {
-        const id =
+    function getId() {
+        const msgId =
             typeof crypto !== "undefined" && "randomUUID" in crypto
                 ? crypto.randomUUID()
                 : `${Date.now()}_${Math.random()}`;
+        return msgId;
+    }
+
+    const handleSend = (text: string) => {
+        const id = getId();
         //새 메세지 배열에 추가
         setMessages(prev => [
             ...prev,
