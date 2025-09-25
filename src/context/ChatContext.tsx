@@ -1,8 +1,6 @@
 // src/context/ChatContext.tsx
 import React, { createContext, useContext, useMemo, useState } from 'react';
-import type { Id, User, TextMessage } from '@/types/chat';
-
-type Conversation = { id: Id; title: string; memberCount?: number };
+import type { Id, User, TextMessage, Conversation } from '@/types/chat';
 
 type State = {
   users: Record<Id, User>;
@@ -16,7 +14,7 @@ const ChatContext = createContext<State | null>(null);
 
 const CHAT_ID: Id = 'ceos-22';
 
-// 샘플 데이터 (시안과 유사)
+// 샘플 유저
 const initialUsers: Record<Id, User> = {
   me: { id: 'me', name: '나', avatarUrl: '/src/assets/react.svg' },
   o: { id: 'o', name: '오스세', avatarUrl: '/src/assets/react.svg' },
@@ -25,11 +23,16 @@ const initialUsers: Record<Id, User> = {
   s3: { id: 's3', name: '세오오스', avatarUrl: '/src/assets/react.svg' },
 };
 
+// 대화방 (⛳️ Profile.tsx에서 쓰던 participantIds 포함)
 const initialConversations: Record<Id, Conversation> = {
-  [CHAT_ID]: { id: CHAT_ID, title: 'CEOS 22기 잡담방', memberCount: 65 },
+  [CHAT_ID]: {
+    id: CHAT_ID,
+    title: 'CEOS 22기 잡담방',
+    memberCount: 65,
+    participantIds: ['me', 'o', 's1', 's2', 's3'],
+  },
 };
 
-// 헬퍼
 const iso = (h: number, m: number) => {
   const d = new Date();
   d.setHours(h, m, 0, 0);
