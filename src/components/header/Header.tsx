@@ -11,10 +11,11 @@ interface HeaderProps {
   type: HeaderType;
   title?: string; // 화면 제목
   onBack?: () => void; // 왼쪽 뒤로가기 버튼 (채팅방, 프로필)
+  onTitleClick?: () => void; // 채팅방 제목 클릭 이벤트
   rightActions?: ReactNode; // 오른쪽 헤더 아이콘
 }
 
-const Header = ({ type, title, onBack, rightActions }: HeaderProps) => {
+const Header = ({ type, title, onBack, onTitleClick, rightActions }: HeaderProps) => {
   const renderHeader = () => {
     switch (type) {
       case 'home':
@@ -22,7 +23,7 @@ const Header = ({ type, title, onBack, rightActions }: HeaderProps) => {
       case 'chatlist':
         return <ChatlistHeader rightActions={rightActions} />;
       case 'chatroom':
-        return <ChatroomHeader title={title} onBack={onBack} rightActions={rightActions} />;
+        return <ChatroomHeader title={title} onBack={onBack} onTitleClick={onTitleClick} rightActions={rightActions} />;
       case 'profile':
         return <ProfileHeader onBack={onBack} rightActions={rightActions} />;
       default:

@@ -7,10 +7,11 @@ import Hamburger from '@/assets/svgs/header/chatroom/hamburger.svg';
 interface ChatroomHeaderProps {
   title?: string;
   onBack?: () => void;
+  onTitleClick?: () => void; // title 클릭 이벤트 핸들러
   rightActions?: ReactNode;
 }
 
-const ChatroomHeader = ({ title = "이름", onBack, rightActions }: ChatroomHeaderProps) => {
+const ChatroomHeader = ({ title = "이름", onBack, onTitleClick, rightActions }: ChatroomHeaderProps) => {
   return (
     <div className="flex items-center justify-between h-full pl-[12px] pr-[16px] py-[10px]">
       {/* 왼쪽 대화 상대 이름 */}
@@ -19,7 +20,9 @@ const ChatroomHeader = ({ title = "이름", onBack, rightActions }: ChatroomHead
           <img src={ArrowLeft} alt="뒤로가기" />
         </button>
         <div className='mt-[1px]'>
-          <span className="text-body1">{title}</span>
+          <button onClick={onTitleClick} className='cursor-pointer'>
+            <span className="text-body1">{title}</span>
+          </button>
         </div>
       </div>
       
