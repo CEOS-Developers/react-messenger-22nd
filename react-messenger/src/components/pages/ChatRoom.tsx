@@ -1,5 +1,5 @@
 // src/pages/ChatRoom.tsx
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
 type Msg = {
