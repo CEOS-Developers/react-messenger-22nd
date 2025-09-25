@@ -7,10 +7,10 @@ interface ChatAreaProps {
   messages: Message[];
   users: User[];
   currentUserId: string;
-  isGroupChat?: boolean;
+  // isGroupChat: boolean; // 그룹 채팅 여부 (현재는 사용x)
 }
 
-const ChatArea = ({ messages, users, currentUserId, isGroupChat = false }: ChatAreaProps) => {
+const ChatArea = ({ messages, users, currentUserId}: ChatAreaProps) => {
   // 스크롤을 맨 아래로 이동시키기 위한 ref
   const chatEndRef = useRef<HTMLDivElement>(null);
   const chatAreaRef = useRef<HTMLDivElement>(null);

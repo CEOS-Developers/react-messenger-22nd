@@ -101,7 +101,6 @@ const ChatRoom = () => {
         messages={messages}
         users={users}
         currentUserId={currentUserId}
-        isGroupChat={false}
       />
 
       <MessageInput onSendMessage={handleSendMessage} />
