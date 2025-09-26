@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="p-4 flex justify-between items-center">
+    <header className="p-4 flex justify-between items-center pt-[env(safe-area-inset-top)]">
       <h1 className="text-2xl font-bold">친구</h1>
       <div className="flex space-x-4 ">
         {[
