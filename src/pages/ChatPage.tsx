@@ -25,8 +25,8 @@ export default function ChatPage() {
             sentAt: Date.now() - 1000 * 60 * 2,
             readBy: 3, //역시 Figma에 있는대로 구현
             date: todayMD,
-            senderName: "정희연",
-            profileSrc: getPf("정희연")
+            senderName: "장희연",
+            profileSrc: getPf("장희연")
         }
     ]);
 

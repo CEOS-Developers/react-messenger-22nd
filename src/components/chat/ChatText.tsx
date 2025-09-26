@@ -26,21 +26,21 @@ export default function ChatText({text, sentAt, isMe, readBy, totalPeople, sende
         <div className={`flex ${isMe ? "justify-end" : "justify-start"} items-start`}>
             {isMe ? (
                 /*내 메시지*/
-                <div className="flex items-end gap-[6px] max-w-[75%] min-w-0">
+                <div className="flex items-end gap-[6px] max-w-[100%] min-w-0">
                     <div className="flex flex-col  items-end justify-center-safe ">
                         <div className="text-[11px] text-blue-400 whitespace-nowrap">
                             {unread > 0 ? unread : "읽음"}
                         </div>
-                        <div className="text-[11px] text-gray-400 whitespace-nowrap">{fmtTime(sentAt)}</div>
+                        <div className="text-[10px] text-gray-400 whitespace-nowrap">{fmtTime(sentAt)}</div>
                     </div>
-                    <div className="min-w-0 px-3 py-2 rounded-2xl rounded-tr-none
+                    <div className="min-w-0 px-3 py-2 font-normal text-[13px] leading-[1.4] rounded-2xl rounded-tr-none
                           bg-indigo-200 text-slate-900 whitespace-pre-wrap [overflow-wrap:anywhere]">
                         {text}
                     </div>
                 </div>
             ) : (
                 /*상대메세지*/
-                <div className="flex items-start gap-2 max-w-[85%] min-w-0">
+                <div className="flex items-start gap-2 max-w-[100%] min-w-0">
                     {/*프로필 사진*/}
                     {profileSrc && (
                         <img
@@ -56,10 +56,10 @@ export default function ChatText({text, sentAt, isMe, readBy, totalPeople, sende
                         <div className="flex items-end gap-1 min-w-0">
                             <div className="min-w-0 px-3 py-2 rounded-2xl rounded-tl-none
                               bg-white text-slate-900
-                              whitespace-pre-wrap  [overflow-wrap:anywhere]">
+                              whitespace-pre-wrap font-normal text-[13px] leading-[1.4] [overflow-wrap:anywhere]">
                                 {text}
                             </div>
-                            <div className="text-[11px] text-gray-400 whitespace-nowrap">{fmtTime(sentAt)}</div>
+                            <div className="text-[10px] text-gray-400 whitespace-nowrap">{fmtTime(sentAt)}</div>
                         </div>
                     </div>
                 </div>
