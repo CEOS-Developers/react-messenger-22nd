@@ -46,7 +46,7 @@ export default function MessageBubble({ message, isMine, user, showAvatar, time 
         {!isMine && showAvatar && (
           <div className="text-body2-medium mb-1 pl-1 text-[color:var(--gray-800)]">{user?.name ?? ''}</div>
         )}
-        <div className="text-body2-medium rounded-[12px] bg-[var(--white)] px-4 py-3 whitespace-pre-wrap text-[color:var(--gray-800)]">
+        <div className="text-body2-medium rounded-[12px] bg-[var(--white)] px-4 py-3 break-words break-all whitespace-pre-wrap text-[color:var(--gray-800)]">
           {message.text}
         </div>
       </div>
