@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1234",
+    "userId": "u1",
+    "text": "안녕!",
+    "createdAt": 1695450000000,
+    "channelId": "c1"
+  },
+  {
+    "id": "1235",
+    "userId": "me",
+    "text": "안녕하세요 :)",
+    "createdAt": 1695450060000,
+    "channelId": "c1"
+  }
+]
