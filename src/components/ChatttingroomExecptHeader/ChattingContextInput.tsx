@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import InputAddButton from '@/assets/svgs/chat/input-add-button.svg';
 import Imoji from '@/assets/svgs/chat/imoji.svg';
 import SendButton from '@/assets/svgs/chat/send-button.svg';
 
 const ChattingContextInput = () => {
-  const [testValue, setTestValue] = useState(0);
+  const testValue: number = 0;
 
   return (
     <div className="flex h-[78px] w-full flex-row gap-[10px] bg-[#EBE4E0] p-[16px] px-[20px]">
@@ -43,7 +42,7 @@ const ChattingContextInput = () => {
           <img
             src={SendButton}
             alt="send-button"
-            className="absolute top-[3px] right-[1%] h-[31px] w-[30px] cursor-pointer"
+            className="absolute top-[3px] right-[0.5%] h-[31px] w-[30px] cursor-pointer"
           />
         </div>
       )}

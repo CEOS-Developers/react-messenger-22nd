@@ -4,8 +4,8 @@ import MenuHamburger from '@/assets/svgs/menubar/upper-menubar/menu-hamburger.sv
 
 const ChattingRoomHeader = () => {
   return (
-    <div className="relative flex w-full gap-[10px] px-[20px]">
-      <button className="absolute left-[20px] cursor-pointer">
+    <div className="flex w-full justify-between gap-[10px] px-[20px]">
+      <button className="cursor-pointer">
         <img src={BeforeBtn} alt="before-btn" className="h-[24px] w-[24px]" />
       </button>
       <div className="absolute left-1/2 -translate-x-1/2 transform">

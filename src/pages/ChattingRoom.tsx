@@ -1,13 +1,18 @@
 import StatusBar from '../components/MenuBar/StatusBar';
 import ChattingRoomHeader from '@/components/MenuBar/ChattingRoomHeader';
-import ChattingContextInput from '@/components/ChattingInput/ChattingContextInput';
+import ChattingContextInput from '@/components/ChatttingroomExecptHeader/ChattingContextInput';
+import ChatScreen from '@/components/ChatttingroomExecptHeader/ChatScreen';
 
 const ChattingRoom = () => {
   return (
     <div className="flex h-screen flex-col">
-      <StatusBar />
-      <ChattingRoomHeader />
-      <div className="overflow:auto flex-1"></div>'
+      <div>
+        <StatusBar />
+        <ChattingRoomHeader />
+      </div>
+      <div className="flex flex-grow flex-col">
+        <ChatScreen />
+      </div>
       <ChattingContextInput />
     </div>
   );
