@@ -1,5 +1,5 @@
 import banner from '../../assets/banner.svg';
-import Header from '../../header/Header';
+import Header from '../../components/Header';
 import searchIcon from '../../assets/find.png';
 import camerIcon from '../../assets/camera.svg';
 import chattingRoomIcon from '../../assets/chattingRoom.svg';
@@ -37,7 +37,7 @@ function Chatting() {
       <div>
         <ul className="mb-4 flex cursor-pointer flex-col gap-4 px-4">
           {[1, 2, 3, 4, 5, 6, 7].map((i) => (
-            <li key={i} className="flex items-center gap-4 px-4" onClick={() => navigate('/chattingRoom')}>
+            <li key={i} className="flex items-center gap-4 px-4" onClick={() => navigate('/chattingroom')}>
               <img src={profile} /> {/* 채팅방 이미지 */}
               <div>
                 <div className="font-bold">채팅방 이름</div> {/* 채팅방 이름 */}

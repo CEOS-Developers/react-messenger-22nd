@@ -14,7 +14,7 @@ function Sidebar() {
   const { pathname } = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-1/2 z-10 flex h-[65px] w-full max-w-[375px] -translate-x-1/2 items-center justify-around rounded border-t border-gray-300 bg-white">
+    <nav className="border-light-gray fixed bottom-0 left-1/2 z-10 flex h-[65px] w-full max-w-[375px] -translate-x-1/2 items-center justify-around rounded border-t bg-white">
       <button className="flex flex-col items-center justify-center gap-1 border-0 bg-transparent">
         <Link to="/friendList">
           <img

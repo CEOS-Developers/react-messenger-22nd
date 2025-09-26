@@ -10,3 +10,17 @@ body,
   height: 100%;
   background-color: black;
 }
+
+@theme {
+  --color-*: initial;
+  --color-white: #fff;
+  --color-purple: #3f3cbb;
+  --color-midnight: #121063;
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+  --color-light-gray: #d9d9d9;
+  --color-gray-50: #f3f3f3;
+}
+@theme {
+  --font-pretendard: 'Pretendard', pretendard;
+}
