@@ -1,4 +1,5 @@
 import React from "react";
+import MagnifierBtn from "@/assets/chatroom/magnifier.svg";
 
 export type ChatTextProps = {
     text: string;
@@ -9,6 +10,7 @@ export type ChatTextProps = {
     readBy: number;
     totalPeople: number;
     senderName?: string;
+    profileSrc?: string;
 };
 //시간 계산
 function fmtTime(t: number | Date) {
@@ -17,40 +19,51 @@ function fmtTime(t: number | Date) {
 }
 
 
-export default function ChatText({text, sentAt, isMe, readBy, totalPeople, senderName}: ChatTextProps) {
+export default function ChatText({text, sentAt, isMe, readBy, totalPeople, senderName, profileSrc}: ChatTextProps) {
     const unread = totalPeople - readBy;
 
     return (
-        <div className={`flex ${isMe ? "justify-end" : "justify-start"} items-end min-w-0`}>
-            <div className="flex max-w-[75%] min-w-0">
-                {!isMe && senderName && (
-                    <div className="text-[11px] text-slate-500 mb-1">{senderName}</div>
-                )}
-                {/*유저가 보낸 문자일떄 row-reverse, 시간을 안쪽에 표기*/}
-                <div className={`flex items-end gap-1 ${isMe ? "flex-row-reverse" : ""} min-w-0`}>
-                    {/* 말풍선 */}
-                    <div
-                        className={[
-                            "min-w-0 px-3 py-2 rounded-2xl whitespace-pre-wrap break-words",
-                            isMe
-                                ? "bg-indigo-200 mr-[4px] text-slate-900 rounded-br-sm"
-                                : "bg-white ml-[4px]text-slate-900 rounded-bl-sm",
-                        ].join(" ")}
-                    >
+        <div className={`flex ${isMe ? "justify-end" : "justify-start"} items-start`}>
+            {isMe ? (
+                /*내 메시지*/
+                <div className="flex items-end gap-[6px] max-w-[75%] min-w-0">
+                    <div className="flex flex-col  items-end justify-center-safe ">
+                        <div className="text-[11px] text-blue-400 whitespace-nowrap">
+                            {unread > 0 ? unread : "읽음"}
+                        </div>
+                        <div className="text-[11px] text-gray-400 whitespace-nowrap">{fmtTime(sentAt)}</div>
+                    </div>
+                    <div className="min-w-0 px-3 py-2 rounded-2xl rounded-tr-none
+                          bg-indigo-200 text-slate-900 whitespace-pre-wrap [overflow-wrap:anywhere]">
                         {text}
                     </div>
-
-                    {/* 시간/읽음: 한 줄 고정 줄바꿈/축소 방지 */}
-                    <div className={"flex flex-col"}>
-                        <div className="text-[11px] text-blue-400 whitespace-nowrap shrink-0 ml-auto">
-                            {isMe && (unread > 0 ? unread : "읽음")}
-                        </div>
-                        <div className="text-[11px] text-gray-400 whitespace-nowrap shrink-0">
-                            {fmtTime(sentAt)}
+                </div>
+            ) : (
+                /*상대메세지*/
+                <div className="flex items-start gap-2 max-w-[85%] min-w-0">
+                    {/*프로필 사진*/}
+                    {profileSrc && (
+                        <img
+                            src={profileSrc}
+                            alt={senderName ?? "상대 프로필"}
+                            className="w-8 h-8 rounded-full object-cover shrink-0"
+                        />
+                    )}
+                    <div className="flex flex-col min-w-0 gap-[7px]">
+                        {senderName && (
+                            <div className="text-[11px] text-gray-400">{senderName}</div>
+                        )}
+                        <div className="flex items-end gap-1 min-w-0">
+                            <div className="min-w-0 px-3 py-2 rounded-2xl rounded-tl-none
+                              bg-white text-slate-900
+                              whitespace-pre-wrap  [overflow-wrap:anywhere]">
+                                {text}
+                            </div>
+                            <div className="text-[11px] text-gray-400 whitespace-nowrap">{fmtTime(sentAt)}</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }

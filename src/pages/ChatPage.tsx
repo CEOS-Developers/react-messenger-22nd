@@ -6,6 +6,7 @@ import ChatText from "@/components/chat/ChatText";
 import {generateMessage} from "@/hooks/generateMsg";
 import {persist} from "@/hooks/store";
 import {Message} from "@/hooks/generateMsg";
+import {getPf} from "@/hooks/generateMsg";
 
 
 export default function ChatPage() {
@@ -18,19 +19,22 @@ export default function ChatPage() {
     const [messages, setMessages] = useState<Message[]>([
         // 데모용 초기 메시지 (Figma에 있는대로 구현)
         {
-            id: "m1",
+            id: "demo1",
             text: "안녕하세요 혹시 오늘 이미지 전달주시나요?",
             isMe: false,
             sentAt: Date.now() - 1000 * 60 * 2,
             readBy: 3, //역시 Figma에 있는대로 구현
-            date: todayMD
+            date: todayMD,
+            senderName: "정희연",
+            profileSrc: getPf("정희연")
         }
     ]);
 
 
     const handleSend = (text: string) => {
         //메세지 반환
-        const nextMsg = generateMessage(text, todayMD, {isMe: true, readBy: 1});
+        const sentBy = "me"
+        const nextMsg = generateMessage(sentBy, text, todayMD, {isMe: true, readBy: 1});
         //새 메세지 배열에 추가
         setMessages(prev => [
             ...prev,
@@ -69,6 +73,9 @@ export default function ChatPage() {
                             isMe={m.isMe}
                             readBy={m.readBy}
                             totalPeople={numPeople}
+                            //!isMe일 때 이름 표기
+                            senderName={'senderName' in m ? m.senderName : undefined}
+                            profileSrc={'profileSrc' in m? m.profileSrc : undefined}
                         />
                     ))}
                 </div>
