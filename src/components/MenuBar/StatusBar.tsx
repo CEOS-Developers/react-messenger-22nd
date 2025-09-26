@@ -5,7 +5,7 @@ import Wifi from '@/assets/svgs/statusbar/wifi.svg';
 const StatusBar = () => {
   return (
     <>
-      <div className="box-border flex flex-row justify-between p-[20px]">
+      <div className="box-border flex flex-row justify-between p-[16px] pb-[14px]">
         <div className="items-center pl-[24px] font-black">
           <p>9:12</p>
         </div>
