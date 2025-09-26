@@ -12,7 +12,7 @@ export default function ChatHeader({ title, memberCount = 65, onBack }: Props) {
     <header className="relative flex h-12 items-center border-b border-[var(--gray-200)] bg-[var(--white)]">
       {/* 좌측: 뒤로가기 */}
       <button type="button" onClick={onBack} aria-label="뒤로가기" className="absolute left-3">
-        <Icon name="arrow-down-2" className="h-5 w-5 rotate-90" />
+        <Icon name="stroke-1" className="h-5 w-5 rotate-90" />
       </button>
 
       {/* 중앙: 방 아이콘 + 타이틀 + 인원수 */}

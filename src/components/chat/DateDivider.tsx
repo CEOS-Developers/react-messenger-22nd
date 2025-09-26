@@ -1,14 +1,11 @@
-function formatKDate(iso: string) {
-  const d = new Date(iso);
-  const yoil = ['일', '월', '화', '수', '목', '금', '토'][d.getDay()];
-  return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일 (${yoil})`;
-}
-export default function DateDivider({ iso }: { iso: string }) {
+// src/components/chat/DateDivider.tsx
+export default function DateDivider({ label = '2025년 9월 18일 목요일' }: { label?: string }) {
   return (
-    <div className="py-2">
-      <div className="text-caption mx-auto w-max rounded-full bg-[var(--gray-300)] px-3 py-1 text-[color:var(--gray-700)]">
-        {formatKDate(iso)}
-      </div>
+    <div className="my-3 flex w-full justify-center">
+      {/* 144x21, radius 32, padding: T/B 2px, L/R 12px, bg gray500, text white(Caption_M_12) */}
+      <span className="text-caption grid h-[21px] min-w-[144px] place-items-center rounded-[32px] bg-[var(--gray-500)] px-[12px] py-[2px] font-medium text-[color:var(--white)]">
+        {label}
+      </span>
     </div>
   );
 }

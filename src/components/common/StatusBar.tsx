@@ -1,42 +1,39 @@
 // src/components/common/StatusBar.tsx
 import { useEffect, useState } from 'react';
+import { Icon } from '@/components/Icon';
 
-function fmtTime(d: Date) {
-  return d.toLocaleTimeString('ko-KR', { hour12: false, hour: '2-digit', minute: '2-digit' });
-}
+const pad2 = (n: number) => (n < 10 ? `0${n}` : String(n));
 
 export default function StatusBar() {
-  const [time, setTime] = useState(() => fmtTime(new Date()));
-
+  const [now, setNow] = useState(() => new Date());
   useEffect(() => {
-    // 매초 갱신(1분 간격보다 정확하고 단순)
-    const i = window.setInterval(() => setTime(fmtTime(new Date())), 1000);
-    return () => clearInterval(i);
+    const t = setInterval(() => setNow(new Date()), 30_000);
+    return () => clearInterval(t);
   }, []);
+  const hh = pad2(now.getHours());
+  const mm = pad2(now.getMinutes());
 
   return (
-    <div className="flex h-7 items-center justify-between bg-[var(--white)] px-3 text-[color:var(--black)]">
-      <span className="text-[13px] font-medium tracking-tight">{time}</span>
-      <div className="flex items-center gap-2">
-        {/* 셀룰러 */}
-        <svg width="18" height="12" viewBox="0 0 18 12" aria-hidden>
-          <rect x="1" y="8" width="3" height="3" rx="0.5" fill="currentColor" />
-          <rect x="5" y="6" width="3" height="5" rx="0.5" fill="currentColor" />
-          <rect x="9" y="4" width="3" height="7" rx="0.5" fill="currentColor" />
-          <rect x="13" y="2" width="3" height="9" rx="0.5" fill="currentColor" />
-        </svg>
-        {/* Wi-Fi */}
-        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden>
-          <path d="M1 3c4-3 12-3 16 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M4 6c3-2 7-2 10 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M7 9c1-1 3-1 4 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-        {/* 배터리 */}
-        <svg width="24" height="12" viewBox="0 0 24 12" fill="none" aria-hidden>
-          <rect x="1" y="2" width="20" height="8" rx="2" stroke="currentColor" />
-          <rect x="3" y="4" width="12" height="4" rx="1" fill="currentColor" />
-          <rect x="21" y="4" width="2" height="4" rx="1" fill="currentColor" />
-        </svg>
+    // ✅ 정확히 375×47, 여백 없음
+    <div className="h-[47px] w-[375px] bg-white">
+      <div className="flex h-full w-full items-center">
+        {/* 시계: 88×47 박스 우측 정렬 */}
+        <div className="flex h-full w-[88px] items-center justify-end pr-[10px]">
+          <span className="text-[15px] leading-none font-medium tracking-tight">
+            {hh}:{mm}
+          </span>
+        </div>
+
+        <div className="flex-1" />
+
+        {/* 우측 인디케이터: 오른쪽/위/아래 6.5px 바깥 여백 */}
+        <div className="my-[6.5px] mr-[6.5px] flex h-[13px] w-[77.3px] items-center">
+          <Icon
+            name="indicators-group" // src/icons/indicators-group.svg (소문자-하이픈)
+            className="block h-full w-full object-contain"
+            alt="status indicators"
+          />
+        </div>
       </div>
     </div>
   );
