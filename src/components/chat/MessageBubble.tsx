@@ -9,13 +9,12 @@ type Props = {
 };
 
 export default function MessageBubble({ message, isMine, user, showAvatar, time }: Props) {
-  // 시간 컴포넌트: Caption_M_12 + gray500
   const Time = ({ side }: { side: 'left' | 'right' }) =>
     time ? (
       <span
         className={[
-          'text-caption-medium self-end leading-none text-[color:var(--gray-500)]',
-          side === 'left' ? 'pr-1' : 'pl-1',
+          'text-caption-medium leading-none text-[color:var(--gray-500)]',
+          side === 'left' ? 'self-end pr-1' : 'self-end pl-1',
         ].join(' ')}
       >
         {time}
@@ -23,10 +22,10 @@ export default function MessageBubble({ message, isMine, user, showAvatar, time 
     ) : null;
 
   return (
-    <div className={`mb-2 flex items-end gap-2 ${isMine ? 'justify-end' : 'justify-start'}`}>
+    <div className={`mb-2 flex gap-2 ${isMine ? 'items-end justify-end' : 'items-start justify-start'}`}>
       {/* 상대 메시지일 때만 아바타(둥근 사각) */}
       {!isMine && (
-        <div className="h-8 w-8 shrink-0">
+        <div className="h-8 w-8 shrink-0 self-start">
           {showAvatar ? (
             user?.avatarUrl ? (
               <img src={user.avatarUrl} alt={user?.name ?? 'user'} className="h-8 w-8 rounded-[12px] object-cover" />
