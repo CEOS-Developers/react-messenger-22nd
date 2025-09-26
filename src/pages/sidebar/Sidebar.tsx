@@ -17,11 +17,15 @@ function Sidebar() {
     <nav className="fixed bottom-0 left-1/2 z-10 flex h-[65px] w-full max-w-[375px] -translate-x-1/2 items-center justify-around rounded border-t border-gray-300 bg-white">
       <button className="flex flex-col items-center justify-center gap-1 border-0 bg-transparent">
         <Link to="/friendList">
-          <img src={pathname === '/friendList' ? FriendIcon : FriendIconG} alt="friend" className="h-6 w-6" />
+          <img
+            src={pathname === '/friendList' || pathname === '/' ? FriendIcon : FriendIconG}
+            alt="friend"
+            className="h-6 w-6"
+          />
           <span
             className={
               `font-pretendard text-center text-[12px] leading-[140%] font-semibold tracking-normal ` +
-              (pathname === '/friendList' ? 'text-black' : 'text-gray-400')
+              (pathname === '/friendList' || pathname === '/' ? 'text-black' : 'text-gray-400')
             }
           >
             친구
