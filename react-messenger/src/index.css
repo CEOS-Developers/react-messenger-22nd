@@ -2,7 +2,7 @@
 @import "tailwindcss/preflight";
 
 @layer base {
-  h1,
+  /* h1, */
   h2,
   h3,
   h4,
@@ -12,6 +12,7 @@
     font-size: inherit;
     font-weight: inherit;
   }
+
   img {
     display: block;
   } /* baseline영향 xx */
@@ -69,11 +70,11 @@
   --leading-120: 1.2;
 }
 
-@layer base {
+/* @layer base {
   :root {
     color-scheme: light;
   }
   body {
     @apply font-sans text-gray-800 bg-white;
   }
-}
+} */
