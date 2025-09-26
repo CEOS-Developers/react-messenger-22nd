@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function HeaderBar({ title }: { title: string }) {
   const nav = useNavigate();
   return (
-    <div className="flex h-[47px] w-full items-center justify-between border-b border-[var(--gray-300)] bg-[var(--white)] px-4">
+    <div className="flex h-[47px] w-full items-center justify-between bg-[var(--white)] px-4">
       <div className="flex items-center gap-3">
         <button onClick={() => nav(-1)} aria-label="뒤로가기">
           <Icon name="stroke-1" className="h-5 w-5" />
