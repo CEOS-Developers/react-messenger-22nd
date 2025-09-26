@@ -4,6 +4,8 @@ import Community from './pages/community/Community';
 import FriendList from './pages/friendList/FriendList';
 import Setting from './pages/settings/Setting.tsx';
 import Sidebar from './pages/sidebar/Sidebar';
+import ChattingRoom from './pages/chat/ChattingRoom.tsx';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/call" element={<Call />} />
           <Route path="/setting" element={<Setting />} />
+          <Route path="/chattingroom" element={<ChattingRoom />} />
         </Routes>
         <Sidebar /> {/* 하단 고정 */}
       </div>
