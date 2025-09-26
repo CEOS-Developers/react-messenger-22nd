@@ -50,7 +50,7 @@ const MessageBubble = ({
         <div className={`flex items-end gap-1 ${isMe ? 'flex-row-reverse' : 'flex-row'}`}>
           {/* 메시지 버블 */}
           <div
-            className={`px-3 py-[6px] break-words ${
+            className={`px-3 pt-[7px] pb-[6px] break-words flex items-center ${
               isMe
                 ? 'bg-white text-gray-7'
                 : 'bg-white text-gray-7'
@@ -62,7 +62,7 @@ const MessageBubble = ({
                 : '0 8px 8px 8px'   // 남이 보낸 메시지
             }}
           >
-            <span className="text-[13px] font-medium leading-[1.6]">
+            <span className="text-body3-m2">
               {message}
             </span>
           </div>

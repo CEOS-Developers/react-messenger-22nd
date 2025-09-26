@@ -13,7 +13,7 @@ const DateSeparator = ({ date, isFirstMessage = false }: DateSeparatorProps) => 
           gap: '10px'
         }}
       >
-        <span className="text-caption2 text-green-5">
+        <span className="text-caption2 font-medium text-green-5">
           {date}
         </span>
       </div>

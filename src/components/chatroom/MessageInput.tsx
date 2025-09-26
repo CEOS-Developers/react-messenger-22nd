@@ -62,7 +62,7 @@ const MessageInput = ({ onSendMessage }: MessageInputProps) => {
     <div className="bg-white">
       <div 
         className={`flex bg-white px-4 py-3 w-[375px] mx-auto transition-all duration-200 ${
-          isMultiline ? 'h-[80px] items-end' : 'h-[60px] items-center'
+          isMultiline ? 'h-[90px] items-end' : 'h-[70px] items-center'
         }`}
       >
         {/* 플러스 버튼 */}
@@ -83,7 +83,7 @@ const MessageInput = ({ onSendMessage }: MessageInputProps) => {
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="메세지 입력"
-                className="flex-1 bg-transparent border-none outline-none text-body3-m1 placeholder-gray-5 resize-none leading-[19.5px] overflow-y-auto w-48 max-h-[55px]"
+                className="flex-1 bg-transparent border-none outline-none text-body3-m1 [&::placeholder]:text-body3-r [&::placeholder]:text-gray-5 resize-none leading-[19.5px] overflow-y-auto w-48 max-h-[55px]"
                 rows={1}
               />
               {/* 이모티콘 버튼 */}
