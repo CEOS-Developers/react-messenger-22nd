@@ -1,39 +1,52 @@
 import React from 'react';
 import type { Message, User } from '@/types/chat';
 
-export default React.memo(function MessageItem({
-  message,
-  user,
-  isMe,
-}: {
+type Props = {
   message: Message;
   user: User;
   isMe: boolean;
-}) {
+};
+
+export default React.memo(function MessageItem({ message, user, isMe }: Props) {
   return (
-    <li className={`flex items-end gap-2 ${isMe ? 'justify-end' : ''}`}>
-      {!isMe && <img src={user.avatarUrl} alt={user.name} className="h-8 w-8 rounded-full object-cover" />}
+    <li className={`flex items-end gap-2 ${isMe ? 'justify-end' : 'justify-start'}`}>
+      {/* 상대 메시지일 때만 아바타 표시 */}
+      {!isMe && (
+        <img
+          src={user.avatarUrl || '/avatars/user.png'}
+          alt={user.name}
+          className="h-8 w-8 shrink-0 rounded-full object-cover"
+        />
+      )}
 
-      <div className={`flex max-w-[72%] flex-col ${isMe ? 'items-end' : ''}`}>
-        {!isMe && <div className="text-body2-medium mb-1 text-[color:var(--gray-600)]">{user.name}</div>}
+      {/* 본문 영역 */}
+      <div className={`flex max-w-[78%] flex-col ${isMe ? 'items-end' : 'items-start'}`}>
+        {/* 상대 이름 (내 메시지엔 없음) */}
+        {!isMe && <div className="text-body2-medium mb-1 text-[color:var(--gray-800)]">{user.name}</div>}
 
+        {/* 말풍선 */}
         <div
           className={[
-            'text-body1-regular rounded-2xl px-3 py-2 shadow',
-            isMe
-              ? 'rounded-br-bubble bg-[var(--green-300)] text-[color:var(--white)]'
-              : 'rounded-bl-bubble bg-[var(--white)] text-[color:var(--black)]',
+            'rounded-2xl px-3 py-2',
+            // 꼬리 방향만 다르게
+            isMe ? 'rounded-br-bubble' : 'rounded-bl-bubble',
+            // 테두리/그림자 제거 + 배경/텍스트 색
+            'bg-[var(--white)] text-[color:var(--black)]',
           ].join(' ')}
         >
-          {message.kind === 'text' && <div className="break-words whitespace-pre-wrap">{message.text}</div>}
+          {message.kind === 'text' && (
+            <div className="text-body1-regular break-words whitespace-pre-wrap">{message.text}</div>
+          )}
         </div>
 
-        <div className="text-caption mt-1 text-[color:var(--gray-500)]">
-          {new Date(message.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+        {/* 시간: 말풍선 아래 오른쪽 정렬 */}
+        <div className="text-caption mt-1 self-end text-[color:var(--gray-500)]">
+          {new Date(message.createdAt).toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+          })}
         </div>
       </div>
-
-      {isMe && <img src={user.avatarUrl} alt={user.name} className="h-8 w-8 rounded-full object-cover" />}
     </li>
   );
 });
