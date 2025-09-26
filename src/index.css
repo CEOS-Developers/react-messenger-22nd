@@ -20,6 +20,7 @@ body,
   --color-bermuda: #78dcca;
   --color-light-gray: #d9d9d9;
   --color-gray-50: #f3f3f3;
+  --color-gray-400: #9e9e9e;
 }
 @theme {
   --font-pretendard: 'Pretendard', pretendard;

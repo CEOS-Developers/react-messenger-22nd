@@ -14,7 +14,7 @@ function Chatting() {
       <Header
         title="채팅"
         right={
-          <div className="flex gap-2">
+          <div className="flex cursor-pointer gap-2">
             <button onClick={() => alert('준비중입니다.')}>
               <img src={searchIcon} alt="search" />
             </button>

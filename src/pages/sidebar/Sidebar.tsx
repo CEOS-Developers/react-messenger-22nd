@@ -33,7 +33,7 @@ function Sidebar() {
         </Link>
       </button>
       <button className="flex cursor-pointer flex-col items-center justify-center gap-1 border-0 bg-transparent">
-        <Link to="/chat" className={pathname === '/chat' ? 'text-black' : 'text-gray-400'}>
+        <Link to="/chat" className={pathname === '/chat' ? 'text-black' : 'text-light-gray'}>
           <img src={pathname === '/chat' ? chatIcon : chatIconG} alt="chat" className="h-6 w-6" />
           <span
             className={
