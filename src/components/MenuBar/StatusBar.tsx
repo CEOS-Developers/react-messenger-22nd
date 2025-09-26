@@ -6,7 +6,7 @@ const StatusBar = () => {
   return (
     <>
       <div className="box-border flex flex-row justify-between p-[20px]">
-        <div className="items-center pl-[16px]">
+        <div className="items-center pl-[24px] font-black">
           <p>9:12</p>
         </div>
         <div className="flex flex-row items-center justify-center gap-[4px] pr-[16px]">

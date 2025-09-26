@@ -3,7 +3,7 @@ import ChattingRoom from './pages/ChattingRoom';
 
 function App() {
   return (
-    <div>
+    <div className="font-sans">
       <ChattingRoom />
     </div>
   );
