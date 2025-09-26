@@ -4,12 +4,18 @@ import MenuHamburger from '@/assets/svgs/menubar/upper-menubar/menu-hamburger.sv
 
 const ChattingRoomHeader = () => {
   return (
-    <>
-      <img src={BeforeBtn} alt="before-btn" />
-      <p>채팅방 이름</p>
-      <img src={Search} alt="search" />
-      <img src={MenuHamburger} alt="menu-hamburger" />
-    </>
+    <div className="relative flex w-full gap-[10px] px-[20px]">
+      <button className="absolute left-[20px] cursor-pointer">
+        <img src={BeforeBtn} alt="before-btn" className="h-[24px] w-[24px]" />
+      </button>
+      <div className="absolute left-1/2 -translate-x-1/2 transform">
+        <p className="font-semibold">세오스</p>
+      </div>
+      <button className="absolute right-[20px] flex gap-[12px]">
+        <img src={Search} alt="search" className="h-[24px] w-[24px] cursor-pointer" />
+        <img src={MenuHamburger} alt="menu-hamburger" className="h-[24px] w-[24px] cursor-pointer" />
+      </button>
+    </div>
   );
 };
 

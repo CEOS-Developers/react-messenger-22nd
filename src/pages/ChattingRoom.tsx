@@ -5,7 +5,7 @@ const ChattingRoom = () => {
   return (
     <div>
       <StatusBar />
-      {/* <ChattingRoomHeader /> */}
+      <ChattingRoomHeader />
     </div>
   );
 };
