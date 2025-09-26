@@ -2,6 +2,8 @@ import {useEffect, useRef, useState} from 'react';
 
 import AddBtn from '@/assets/chatroom/add.svg';
 import EmojiBtn from '@/assets/chatroom/emoji.svg';
+import BluePlaneBtn from '@/assets/chatroom/bluePlane.svg';
+import PlaneBtn from '@/assets/chatroom/plane.svg';
 import * as React from "react";
 
 
@@ -45,7 +47,7 @@ const ChatInput = ({value, onChange, onSend, onEmoji, onAdd,  placeholder = "메
     return (
         <div className="flex flex-col w-[375px] h-[96px]">
 
-            <div className="flex items-center gap-2 w-[343px] mx-auto bg-white rounded-[27px] px-2 py-2 overflow-hidden">
+            <div className="flex items-center w-[343px] mx-auto bg-white rounded-[27px] px-2 py-2 overflow-hidden">
                 <button type="button" onClick={onAdd} >
                     <img src={AddBtn} className={"w-[24px] h-[24px] p-0.5"} alt="add" />
                 </button>
@@ -65,9 +67,17 @@ const ChatInput = ({value, onChange, onSend, onEmoji, onAdd,  placeholder = "메
                 />
 
                 <button type="button" onClick={onEmoji} className="ml-auto">
-                    <img src={EmojiBtn} className="w-6 h-6 block" alt="emoji" />
+                    <img src={EmojiBtn} className="w-[24px] h-[24px] cursor-pointer" alt="emoji button" />
+                </button>
+                {/*전송 버튼*/}
+                <button type="button" onClick={trySend} className="ml-[4px] mr-[10px]">
+                    {value.trim()
+                        ? <img src={BluePlaneBtn} alt="send" className="w-6 h-6 cursor-pointer" />
+                        : <img src={    PlaneBtn} alt="send" className="w-6 h-6 cursor-pointer" />
+                    }
                 </button>
             </div>
         </div>
     );
 }; export default ChatInput
+

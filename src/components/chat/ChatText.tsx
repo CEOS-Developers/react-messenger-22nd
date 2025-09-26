@@ -33,17 +33,21 @@ export default function ChatText({text, sentAt, isMe, readBy, totalPeople, sende
                         className={[
                             "min-w-0 px-3 py-2 rounded-2xl whitespace-pre-wrap break-words",
                             isMe
-                                ? "bg-indigo-200 text-slate-900 rounded-br-sm"
-                                : "bg-white text-slate-900 rounded-bl-sm shadow",
+                                ? "bg-indigo-200 mr-[4px] text-slate-900 rounded-br-sm"
+                                : "bg-white ml-[4px]text-slate-900 rounded-bl-sm",
                         ].join(" ")}
                     >
                         {text}
                     </div>
 
                     {/* 시간/읽음: 한 줄 고정 줄바꿈/축소 방지 */}
-                    <div className="text-[11px] text-slate-400 whitespace-nowrap shrink-0">
-                        {isMe && (unread > 0 ? unread : "읽음")}
-                        <span className="ml-1">{fmtTime(sentAt)}</span>
+                    <div className={"flex flex-col"}>
+                        <div className="text-[11px] text-blue-400 whitespace-nowrap shrink-0 ml-auto">
+                            {isMe && (unread > 0 ? unread : "읽음")}
+                        </div>
+                        <div className="text-[11px] text-gray-400 whitespace-nowrap shrink-0">
+                            {fmtTime(sentAt)}
+                        </div>
                     </div>
                 </div>
             </div>
