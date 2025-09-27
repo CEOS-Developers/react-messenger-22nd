@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import DefaultProfile from '@/assets/svgs/profile/profileIMG-default.svg';
 import { useChat, MY_ID } from '@/context/ChatContext';
 
@@ -15,6 +16,12 @@ const isSameMinute = (d1: Date, d2: Date) => {
 
 const ChatScreen = () => {
   const { messages } = useChat();
+  const bottomRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // 스크롤 화면으로 아래로 자동 이동
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   return (
     <div>
@@ -60,6 +67,8 @@ const ChatScreen = () => {
           </div>
         );
       })}
+      {/* 아래로 스크롤 내려줄 기준점 */}
+      <div ref={bottomRef} />
     </div>
   );
 };

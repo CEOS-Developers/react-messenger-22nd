@@ -10,7 +10,7 @@ const ChattingRoom = () => {
         <StatusBar />
         <ChattingRoomHeader />
       </div>
-      <div className="flex flex-grow flex-col">
+      <div className="flex flex-1 flex-grow flex-col overflow-y-auto">
         <ChatScreen />
       </div>
       <ChattingContextInput />
