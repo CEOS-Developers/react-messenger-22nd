@@ -39,8 +39,11 @@ function Chatting() {
           {[1, 2, 3, 4, 5, 6, 7].map((i) => (
             <li key={i} className="flex items-center gap-4 px-4" onClick={() => navigate('/chattingroom')}>
               <img src={profile} /> {/* 채팅방 이미지 */}
-              <div>
-                <div className="font-bold">채팅방 이름</div> {/* 채팅방 이름 */}
+              <div className="w-full">
+                <p className="flex justify-between">
+                  <span className="font-bold">채팅방 이름</span> {/* 채팅방 이름 */}
+                  <span className="text-xs text-gray-400">11:59 AM</span>
+                </p>
                 <div className="text-sm text-gray-500">마지막 메시지 내용</div> {/* 마지막 메시지 내용 */}
               </div>
             </li>

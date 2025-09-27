@@ -40,7 +40,12 @@ export default function Profile({ mode }: ProfileProps) {
                 <img src={editIcon} />
                 프로필 편집
               </button>
-              <button className="bg-light-yellow flex h-[70px] w-[109px] cursor-pointer flex-col items-center justify-center gap-1 rounded-xl p-2 text-black opacity-70">
+              <button
+                className="bg-light-yellow flex h-[70px] w-[109px] cursor-pointer flex-col items-center justify-center gap-1 rounded-xl p-2 text-black opacity-70"
+                onClick={() =>
+                  window.open('https://www.instagram.com/hij_eong/?igsh=Z3c0a3ZzcDJodHU4&utm_source=qr#', '_blank')
+                }
+              >
                 <img src={instagramIcon} />
                 인스타그램
               </button>
@@ -51,7 +56,12 @@ export default function Profile({ mode }: ProfileProps) {
                 <img src={profileChatIcon} />
                 채팅하기
               </button>
-              <button className="bg-light-yellow flex h-[70px] w-[109px] cursor-pointer flex-col items-center justify-center gap-1 rounded-xl p-2 text-black opacity-70">
+              <button
+                className="bg-light-yellow flex h-[70px] w-[109px] cursor-pointer flex-col items-center justify-center gap-1 rounded-xl p-2 text-black opacity-70"
+                onClick={() =>
+                  window.open('https://www.instagram.com/hij_eong/?igsh=Z3c0a3ZzcDJodHU4&utm_source=qr#', '_blank')
+                }
+              >
                 <img src={instagramIcon} />
                 인스타그램
               </button>
