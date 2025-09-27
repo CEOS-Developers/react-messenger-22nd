@@ -62,7 +62,7 @@ const MessageInput = ({ onSendMessage }: MessageInputProps) => {
     <div className="bg-white">
       <div 
         className={`flex bg-white px-4 py-3 w-[375px] mx-auto transition-all duration-200 ${
-          isMultiline ? 'h-[90px] items-end' : 'h-[70px] items-center'
+          isMultiline ? 'h-[80px] items-end' : 'h-[70px] items-center'
         }`}
       >
         {/* 플러스 버튼 */}
