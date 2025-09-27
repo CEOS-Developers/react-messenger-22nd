@@ -26,7 +26,7 @@ const App = () => {
             <Route path="more" element={<MorePage />} />
 
             {/* 상세 */}
-            <Route path="chat/:chatId" element={<ChatRoom />} />
+            <Route path="chats/:chatId" element={<ChatRoom />} />
             <Route path="profile/:userId" element={<ProfilePage />} />
           </Route>
         </Routes>
