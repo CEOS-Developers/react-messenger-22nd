@@ -20,7 +20,7 @@ const items = [
 
 export default function NavBar() {
   return (
-    <nav className="h-16 border-t flex justify-around items-center">
+    <nav className="h-16 flex justify-around items-center">
       {items.map((it) => (
         <NavLink key={it.to} to={it.to} className="flex flex-col items-center text-xs">
           {({ isActive }) => (
