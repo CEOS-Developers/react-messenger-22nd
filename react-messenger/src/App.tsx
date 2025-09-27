@@ -1,26 +1,33 @@
 import Layout from "./views/Layout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import FriendPage from "./pages/FriendPage";
+import ChatListPage from "./pages/ChatListPage";
+import OpenChatPage from "./pages/OpenChatPage";
+import ShopPage from "./pages/ShopPage";
+import MorePage from "./pages/MorePage";
+import ProfilePage from "./pages/ProfilePage";
+import ChatRoomPage from "./pages/ChatRoom";
 
 const App = () => {
   return (
-    <Layout>
-      {/* 여기부터 실제 페이지 콘텐츠 */}
-      <section className="p-4 space-y-3">
-        <h1 className="text-lg font-semibold">홈 화면</h1>
-        <p className="text-sm text-neutral-600">
-          스크롤 테스트용 더미 콘텐츠입니다. 아래로 내려도 Navbar는 고정!
-        </p>
+    <BrowserRouter>
+      <Routes>
+        {/* 공통 프레임 */}
+        <Route path="/" element={<Layout />}>
+          {/* 탭 루트들 */}
+          <Route index element={<FriendPage />} />
+          <Route path="chatList" element={<ChatListPage />} />
+          <Route path="openChat" element={<OpenChatPage />} />
+          <Route path="shop" element={<ShopPage />} />
+          <Route path="more" element={<MorePage />} />
 
-        {/* 스크롤 확인용 더미 박스들 */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="h-16 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center"
-          >
-            item {i + 1}
-          </div>
-        ))}
-      </section>
-    </Layout>
+          {/* 상세 */}
+          <Route path="chat/:chatId" element={<ChatRoomPage />} />
+          <Route path="profile/:userId" element={<ProfilePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
