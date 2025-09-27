@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export default function ProfileHeader() {
   const nav = useNavigate();
   return (
-    <header className="relative flex items-center justify-between px-0 py-3 pt-[env(safe-area-inset-top)]">
+    <header className="!mx-2 !py-3 flex justify-between items-center pt-[env(safe-area-inset-top)]">
       <button
         type="button"
         onClick={() => nav(-1)}
@@ -17,15 +17,20 @@ export default function ProfileHeader() {
         />
       </button>
 
-      <div className="flex items-center gap-2">
-        <button
-          type="button"
-          className="w-8 h-8 grid place-items-center active:scale-95 rounded"
-          aria-label="설정"
-          title="설정"
-        >
-          <img src="/images/setting.svg" alt="" className="w-5 h-5" />
-        </button>
+      <div className="flex gap-x-3 ">
+        {[
+          { src: "/images/gift.svg", alt: "선물" },
+          { src: "/images/qr.svg", alt: "qr" },
+          { src: "/images/setting.svg", alt: "설정" },
+        ].map((i) => (
+          <button
+            key={i.src}
+            type="button"
+            className="w-6 h-[24px] active:scale-95 transition"
+          >
+            <img src={i.src} alt={i.alt} className="pointer-events-none" />
+          </button>
+        ))}
       </div>
     </header>
   );

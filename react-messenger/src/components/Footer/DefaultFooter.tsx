@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 type ActiveKey = "friends" | "chat" | "openchat" | "shopping" | "more";
 
 export function DefaultFooter({
@@ -7,6 +9,8 @@ export function DefaultFooter({
   active: ActiveKey;
   onTab?: (key: ActiveKey) => void;
 }) {
+  const navigate = useNavigate();
+
   const tabs: { key: ActiveKey; src: string; alt: string }[] = [
     { key: "friends", src: "/images/tab/tabFriends.svg", alt: "친구" },
     { key: "chat", src: "/images/tab/tabChatting.svg", alt: "채팅" },
@@ -26,7 +30,14 @@ export function DefaultFooter({
                 <button
                   key={t.key}
                   type="button"
-                  onClick={() => onTab?.(t.key)}
+                  onClick={() => {
+                    if (t.key === "chat") {
+                      navigate("/chatting");
+                    } else if (t.key === "friends") {
+                      navigate("/");
+                    }
+                    onTab?.(t.key);
+                  }}
                   className={[
                     "w-[50px] h-[48px]",
                     "active:scale-95 transition",

@@ -6,7 +6,7 @@ export default function Profile() {
   return (
     // <div className="mx-auto min-h-screen w-[375px] select-none bg-white">
     <div>
-      <div className="flex flex-col items-center !mt-100">
+      <div className="flex flex-col items-center !pt-85  !gap-3">
         <section className="w-[324px] h-[124px] rounded-2xl bg-gray-300 p-3 flex items-center gap-3">
           <div className="shrink-0 w-20 h-20 grid place-items-center">
             <img src="/images/bigAvatar.svg" alt="avatar" />
@@ -28,7 +28,7 @@ export default function Profile() {
             className="w-6 h-6"
           />
         </section>
-        <button className=" w-[324px] h-[124px] rounded-2xl active:scale-[0.99]">
+        <button className=" w-[324px] !mb-5 rounded-2xl active:scale-[0.99]">
           <img
             src="/images/profile/profileSNS.svg"
             alt="profileSNS"

@@ -13,5 +13,11 @@ export const api = {
   collections: {
     list: () => http<any[]>("/data/collections.json"),
   },
+  messages: {
+    list: () => http<Record<string, any[]>>("/data/messages.json"),
+  },
+  rooms: {
+    list: () => http<any[]>("/data/room.json"),
+  },
   // messages는 localStorage 이용
 };
