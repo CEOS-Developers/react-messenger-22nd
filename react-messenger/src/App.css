@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Figma components */
+@theme {
+  --font-sans: "Pretendard";
+
+  /* Red Scale*/
+  --color-red-400: #f41e14;
+  --color-red-300: #fa8f8a;
+  --color-red-200: #fcbcb9;
+  --color-red-100: #fee9e8;
+  /* Gray Scale*/
+  --color-gray-500: #5e5e5e;
+  --color-gray-400: #a6a6a6;
+  --color-gray-300: #d6d6d6;
+  --color-gray-200: #e9e9e9;
+  --color-gray-100: #e9e9e9;
+  --color-gray-0: #f9f9f9;
+  /* B/W */
+  --color-black: #292929;
+  --color-white: #fdfdfd;
+}
+
+@utility iPhone-frame {
+  width: 375px;
+  height: 812px;
+  background: white;
+  margin: 0 auto;
+  padding: 20px;
+  overflow: hidden;
+}
+
+:root {
+  background-color: gray;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* Head */
+@utility h1-bd {
+  @apply text-[24pt] leading-[120%] tracking-[0.02em] font-bold;
+}
+@utility h2-bd {
+  @apply text-[20pt] leading-[120%] tracking-[0.02em] font-bold;
+}
+@utility h3-md {
+  @apply text-[18pt] leading-[120%] tracking-[0.02em] font-medium;
+}
+/* Body / Caption */
+@utility body1-md {
+  @apply text-[16pt] leading-[120%] tracking-[0.02em] font-medium;
+}
+@utility body1-bd {
+  @apply text-[16pt] leading-[120%] tracking-[0.02em] font-bold;
+}
+@utility body1-sb {
+  @apply text-[16pt] leading-[120%] tracking-[0.02em] font-semibold;
+}
+@utility body2-md {
+  @apply text-[14pt] leading-[120%] tracking-[0.02em] font-medium;
+}
+@utility body2-sb {
+  @apply text-[14pt] leading-[120%] tracking-[0.02em] font-semibold;
+}
+@utility cap1-md {
+  @apply text-[12pt] leading-[120%] tracking-[0.02em] font-medium;
+}
+@utility cap1-sb {
+  @apply text-[12pt] leading-[120%] tracking-[0.02em] font-semibold;
+}
+@utility cap2-md {
+  @apply text-[10pt] leading-[120%] tracking-[0em]   font-medium;
+}
+@utility cap2-sb {
+  @apply text-[10pt] leading-[120%] tracking-[0em]   font-semibold;
+}
