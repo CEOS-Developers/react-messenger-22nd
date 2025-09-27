@@ -12,7 +12,7 @@ const StatusBar = () => {
 
   return (
     <>
-      <div className="box-border flex flex-row justify-between p-[16px] pb-[14px]">
+      <div className="box-border flex w-full flex-row justify-between p-[16px] pb-[14px]">
         <div className="items-center pl-[24px] font-black">
           <p>
             {formattedHour}:{formattedMinute}

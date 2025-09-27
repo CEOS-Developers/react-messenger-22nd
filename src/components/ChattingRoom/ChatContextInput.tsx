@@ -33,14 +33,14 @@ const ChattingContextInput = () => {
   };
 
   return (
-    <div className="mt-[8px] flex h-[78px] w-full flex-row gap-[10px] bg-[#EBE4E0] px-[20px] py-[16px]">
+    <div className="mt-[8px] flex h-[78px] w-full items-center gap-[10px] bg-[#EBE4E0] px-[20px] py-[16px] pb-[18px]">
       <img
         src={InputAddButton}
         alt="input-add-button"
         className="h-[36px] w-[36px] cursor-pointer rounded-[6px] bg-white p-[11px]"
       />
       <div
-        className="relative flex flex-1"
+        className={`${isHovered ? 'border-black-100 border' : 'border border-transparent'} flex h-[36px] flex-1 items-center rounded-[6px] bg-white`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -49,20 +49,16 @@ const ChattingContextInput = () => {
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="메세지 입력"
-          className={`placeholder-[#BABCBE]} ${isHovered ? 'w-[85%]' : ''} absolute h-[36px] w-full flex-1 rounded-[6px] bg-white px-[10px] pr-[40px]`}
+          className={`placeholder-[#BABCBE]} flex-1 border-none px-[10px] outline-none`}
         />
-        <img
-          src={Imoji}
-          alt="imoji"
-          className={`absolute top-[18px] ${isHovered ? 'right-[10%]' : 'right-[12px]'} right-[12px] h-[24px] w-[24px] -translate-y-1/2 transform cursor-pointer`}
-        />
+        <img src={Imoji} alt="imoji" className={`mr-[10px] h-[24px] w-[24px] cursor-pointer`} />
       </div>
       {isHovered && (
         <img
           src={SendButton}
           alt="send-button"
           onClick={handleSend}
-          className="relative top-[3px] right-[0.5%] z-10 h-[31px] w-[30px] cursor-pointer"
+          className="top-[3px] right-[1px] h-[30px] w-[30px] cursor-pointer"
         />
       )}
     </div>
