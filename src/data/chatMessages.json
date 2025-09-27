@@ -1,0 +1,18 @@
+[
+  {
+    "msgId": "msg-1",
+    "senderId": "user-1",
+    "senderName": "세오스",
+    "content": "안녕하세요 세오스입니다~",
+    "type": "text",
+    "sentAt": "2025-09-24T10:25:00"
+  },
+  {
+    "msgId": "msg-2",
+    "senderId": "user-2",
+    "senderName": "홍길동",
+    "content": "안녕하세요 홍길동입니다~",
+    "type": "text",
+    "sentAt": "2025-09-25T10:26:00"
+  }
+]
