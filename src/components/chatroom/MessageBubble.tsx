@@ -56,7 +56,7 @@ const MessageBubble = ({
         {!isMe && showProfile && (
           <button
             onClick={handleUserNameClick}
-            className={`text-body3-m2 mb-[4px] ml-1 tracking-[-0.12px] text-left ${
+            className={`text-body3-m2  mb-[4px] ml-1 tracking-[-0.12px] text-left ${
               onUserNameClick ? 'hover:text-green-4 cursor-pointer' : ''
             }`}
           >

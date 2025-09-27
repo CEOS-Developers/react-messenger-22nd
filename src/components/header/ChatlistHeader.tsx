@@ -9,18 +9,19 @@ interface ChatlistHeaderProps {
 
 const ChatlistHeader = ({ rightActions }: ChatlistHeaderProps) => {
   return (
-    <div className="flex items-center justify-between h-full px-[24px] py-[10px] bg-green-3">
+    <div className="flex items-center justify-between h-[53px] px-[24px] py-[10px] bg-gray-0">
       {/* 대화 */}
       <div className="flex items-center">
-        <button>
-          <img src={Filter} alt="필터" className="w-[22px] h-[22px] text-gray-0" />
-        </button>
+        <span className="text-headline2">대화</span>
       </div>
       
       {/* 오른쪽 아이콘들 */}
       <div className="flex items-center gap-[12px]">
         {rightActions || (
           <>
+            <button>
+              <img src={Filter} alt="필터" className="w-[22px] h-[22px] text-gray-0" />
+            </button>
             <button className='cursor-pointer'>
               <img src={Image} alt="이미지" className="w-[22px] h-[22px]" />
             </button>
