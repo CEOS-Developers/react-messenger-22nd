@@ -4,8 +4,18 @@ import PlusIcon from "../../assets/icons/PlusIcon";
 import StickerIcon from "../../assets/icons/StickerIcon";
 import SendIcon from "../../assets/icons/SendIcon";
 
-const MessageInput = () => {
+interface MessageInputProps {
+  onSend: (text: string) => void; // 입력 받은 내용 상위 컴포넌트로 전달하기
+}
+
+const MessageInput = ({ onSend }: MessageInputProps) => {
   const [message, setMessage] = useState("");
+
+  const handleSend = () => {
+    if (!message.trim()) return;
+    onSend(message);
+    setMessage(""); //입력창 다시 비우기
+  };
 
   return (
     <div className="h-[84px] w-[375px] relative">
@@ -22,7 +32,13 @@ const MessageInput = () => {
         ></input>
         <div className="ml-auto flex">
           <StickerIcon />
-          {message.trim() ? <SendIcon /> : <CameraIcon />}
+          {message.trim() ? (
+            <button onClick={handleSend}>
+              <SendIcon />
+            </button>
+          ) : (
+            <CameraIcon />
+          )}
         </div>
       </div>
     </div>
