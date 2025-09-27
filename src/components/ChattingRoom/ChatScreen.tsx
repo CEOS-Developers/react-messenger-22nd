@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import DefaultProfile from '@/assets/svgs/profile/profileIMG-default.svg';
-import { MY_ID } from '@/type/ChatType';
+import { MY_ID } from '@/type/ChatType.types';
 import { useChat } from '@/hooks/useChat';
-import { formatDate, formatTime } from '@/type/DateType';
+import { formatDate, formatTime } from '@/type/DateType.types';
 
 // minutes 일치 비교 (for rendering 채팅메시지)
 const isSameMinute = (d1: Date, d2: Date) => {

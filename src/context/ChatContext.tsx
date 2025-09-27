@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
-import type { Message, DataMessage } from '@/type/ChatType';
+import type { Message, DataMessage } from '@/type/ChatType.types';
 import chatMessageData from '@/data/chatMessages.json';
-import { ChatContext } from '@/type/ChatType';
+import { ChatContext } from '@/type/ChatType.types';
 
 interface ChatProviderProps {
   children: ReactNode;

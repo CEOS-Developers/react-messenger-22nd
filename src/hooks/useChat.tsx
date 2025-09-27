@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ChatContext } from '@/type/ChatType';
+import { ChatContext } from '@/type/ChatType.types';
 
 export const useChat = () => {
   const context = useContext(ChatContext);

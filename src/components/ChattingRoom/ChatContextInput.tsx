@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MY_ID } from '@/type/ChatType';
+import { MY_ID } from '@/type/ChatType.types';
 import { useChat } from '@/hooks/useChat';
 import InputAddButton from '@/assets/svgs/chat/input-add-button.svg';
 import Imoji from '@/assets/svgs/chat/imoji.svg';
