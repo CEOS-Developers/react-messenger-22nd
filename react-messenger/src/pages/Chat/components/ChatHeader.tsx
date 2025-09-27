@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function ChatHeader({ title }: { title: string }) {
+export default function ChatHeader({ title }: { title?: string }) {
   const nav = useNavigate();
   return (
     <header className="sticky top-0 z-10 !pt-2 backdrop-blur">
