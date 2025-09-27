@@ -16,15 +16,20 @@ const ChatRoom = () => {
   const { chatRoomId } = useParams<{ chatRoomId: string }>();
   
   // zustand store 사용
-  const { currentUserId, users, loadUsers, switchToUser } = useUserStore();
+  const { users, loadUsers, getCurrentUserId, switchToUser, resetToDefault } = useUserStore();
   const { getMessages, setMessages, sendMessage } = useChatStore();
   
+  const roomId = chatRoomId || '1';
+  
+  // 현재 채팅방의 사용자 시점 가져오기
+  const currentUserId = getCurrentUserId(roomId);
+  
   // 현재 채팅방의 메시지 가져오기
-  const messages = getMessages(chatRoomId || '1');
+  const messages = getMessages(roomId);
 
   // 현재 채팅방 정보 가져오기
   const getCurrentChatRoom = () => {
-    return chatRoomsData.find(room => room.chatId === chatRoomId);
+    return chatRoomsData.find(room => room.chatId === roomId);
   };
 
   const currentChatRoom = getCurrentChatRoom();
@@ -36,9 +41,18 @@ const ChatRoom = () => {
     
     // 채팅방 초기 메시지 로드
     if (currentChatRoom && messages.length === 0) {
-      setMessages(chatRoomId || '1', currentChatRoom.messages);
+      setMessages(roomId, currentChatRoom.messages);
     }
-  }, [chatRoomId, currentChatRoom, loadUsers, setMessages, messages.length]);
+
+    // 채팅방 입장 시 기본 사용자로 리셋 (처음 입장하는 경우에만)
+    // 이미 해당 채팅방에 시점이 설정되어 있다면 유지
+    const hasExistingPerspective = getCurrentUserId(roomId) !== 'user2' || 
+      localStorage.getItem('user-storage')?.includes(`"${roomId}"`);
+    
+    if (!hasExistingPerspective) {
+      resetToDefault(roomId);
+    }
+  }, [roomId, currentChatRoom, loadUsers, setMessages, messages.length, getCurrentUserId, resetToDefault]);
 
   // 채팅방 제목 생성
   const getChatRoomTitle = () => {
@@ -59,16 +73,16 @@ const ChatRoom = () => {
     }
   };
 
-  // 사용자 이름 클릭 핸들러 (새로운 유저 전환 방식)
+  // 사용자 이름 클릭 핸들러 (채팅방별 유저 전환)
   const handleUserNameClick = (userId: string) => {
     if (currentChatRoom) {
-      switchToUser(userId, currentChatRoom.participants);
+      switchToUser(roomId, userId, currentChatRoom.participants);
     }
   };
 
   // 새로운 메시지 전송 핸들러
   const handleSendMessage = (content: string) => {
-    sendMessage(chatRoomId || '1', content, currentUserId);
+    sendMessage(roomId, content, currentUserId);
   };
 
   if (!currentChatRoom) {
@@ -85,14 +99,14 @@ const ChatRoom = () => {
         type="chatroom"
         title={getChatRoomTitle()}
         onBack={() => navigate(-1)}
-        // onTitleClick 제거 - 더 이상 헤더 클릭으로 유저 전환하지 않음
+        // 헤더 클릭 기능 완전 제거
       />
 
       <ChatArea
         messages={messages}
         users={users}
         currentUserId={currentUserId}
-        onUserNameClick={handleUserNameClick} // 사용자 이름 클릭 핸들러 전달
+        onUserNameClick={handleUserNameClick}
       />
 
       <MessageInput onSendMessage={handleSendMessage} />

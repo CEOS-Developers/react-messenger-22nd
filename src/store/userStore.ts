@@ -5,29 +5,29 @@ import { mapUsersWithProfile } from '@/utils/userUtils';
 import usersData from '@/data/users.json';
 
 interface UserState {
-  // 현재 사용자
-  currentUserId: string;
+  // 기본 사용자 (항상 "나")
+  defaultUserId: string;
+  
+  // 채팅방별 현재 사용자 시점 저장
+  currentUserByRoom: Record<string, string>; // { "1": "user2", "2": "user3" }
   
   // 전체 사용자 데이터
   users: User[];
   
   // Actions
-  setCurrentUserId: (userId: string) => void;
   loadUsers: () => void;
   getUserById: (userId: string) => User | undefined;
-  switchUser: () => void; // user1 <-> user2 전환
-  switchToUser: (userId: string, chatRoomParticipants: string[]) => void; // 특정 사용자로 전환
+  getCurrentUserId: (chatRoomId: string) => string;
+  switchToUser: (chatRoomId: string, userId: string, chatRoomParticipants: string[]) => void;
+  resetToDefault: (chatRoomId: string) => void; // 기본 사용자로 리셋
 }
 
 export const useUserStore = create<UserState>()(
   persist(
     (set, get) => ({
-      currentUserId: 'user2',
+      defaultUserId: 'user2', // 기본 사용자는 항상 "나"
+      currentUserByRoom: {},
       users: [],
-
-      setCurrentUserId: (userId: string) => {
-        set({ currentUserId: userId });
-      },
 
       loadUsers: () => {
         const mappedUsers = mapUsersWithProfile(usersData as User[]);
@@ -39,32 +39,51 @@ export const useUserStore = create<UserState>()(
         return users.find(user => user.id === userId);
       },
 
-      switchUser: () => {
-        const { currentUserId } = get();
-        const newUserId = currentUserId === 'user2' ? 'user1' : 'user2';
-        set({ currentUserId: newUserId });
+      getCurrentUserId: (chatRoomId: string) => {
+        const { currentUserByRoom, defaultUserId } = get();
+        // 해당 채팅방에 저장된 시점이 있으면 사용, 없으면 기본값
+        return currentUserByRoom[chatRoomId] || defaultUserId;
       },
 
-      switchToUser: (userId: string, chatRoomParticipants: string[]) => {
+      switchToUser: (chatRoomId: string, userId: string, chatRoomParticipants: string[]) => {
         // 해당 사용자가 채팅방 참여자인지 확인
         if (!chatRoomParticipants.includes(userId)) {
-          console.warn(`User ${userId}는 이 채팅방의 참여자가 아닙니다.`);
+          console.warn(`User ${userId} is not a participant in this chat room`);
           return;
         }
         
         // 자기 자신으로는 전환하지 않음
-        const { currentUserId } = get();
+        const currentUserId = get().getCurrentUserId(chatRoomId);
         if (userId === currentUserId) {
-          console.info('이미 해당 user의 시점입니다.');
+          console.info('Already viewing from this user\'s perspective');
           return;
         }
         
-        set({ currentUserId: userId });
+        // 해당 채팅방의 시점만 변경
+        set(state => ({
+          currentUserByRoom: {
+            ...state.currentUserByRoom,
+            [chatRoomId]: userId
+          }
+        }));
+      },
+
+      resetToDefault: (chatRoomId: string) => {
+        const { defaultUserId } = get();
+        set(state => ({
+          currentUserByRoom: {
+            ...state.currentUserByRoom,
+            [chatRoomId]: defaultUserId
+          }
+        }));
       }
     }),
     {
       name: 'user-storage',
-      partialize: (state) => ({ currentUserId: state.currentUserId })
+      partialize: (state) => ({ 
+        currentUserByRoom: state.currentUserByRoom,
+        defaultUserId: state.defaultUserId 
+      })
     }
   )
 );
