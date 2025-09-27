@@ -32,7 +32,7 @@ const ChattingContextInput = () => {
   };
 
   return (
-    <div className="flex h-[78px] w-full flex-row gap-[10px] bg-[#EBE4E0] p-[16px] px-[20px]">
+    <div className="mt-[8px] flex h-[78px] w-full flex-row gap-[10px] bg-[#EBE4E0] px-[20px] py-[16px]">
       <img
         src={InputAddButton}
         alt="input-add-button"
