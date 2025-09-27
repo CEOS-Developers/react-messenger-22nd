@@ -1,7 +1,7 @@
 import StatusBar from '../components/MenuBar/StatusBar';
 import ChattingRoomHeader from '@/components/MenuBar/ChattingRoomHeader';
-import ChattingContextInput from '@/components/ChatttingroomExecptHeader/ChattingContextInput';
-import ChatScreen from '@/components/ChatttingroomExecptHeader/ChatScreen';
+import ChattingContextInput from '@/components/ChattingRoom/ChatContextInput';
+import ChatScreen from '@/components/ChattingRoom/ChatScreen';
 
 const ChattingRoom = () => {
   return (
