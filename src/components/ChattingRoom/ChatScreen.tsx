@@ -1,22 +1,5 @@
-import { useState, useEffect } from 'react';
 import DefaultProfile from '@/assets/svgs/profile/profileIMG-default.svg';
-import chatMessagesData from '@/data/chatMessages.json';
-
-// 메시지타입
-type DataMessage = {
-  msgId: string;
-  senderId: string;
-  senderName: string;
-  content: string;
-  type: 'text' | 'image' | 'video' | 'file';
-  sentAt: string;
-};
-
-// 변환 후 사용할 메시지 타입
-type Message = Omit<DataMessage, 'sentAt'> & { sentAt: Date };
-
-// 나 (유저)
-const MY_ID = 'user-0';
+import { useChat, MY_ID } from '@/context/ChatContext';
 
 // Date 객체 → "YYYY년 M월 D일"
 const formatDate = (date: Date) => `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
@@ -31,17 +14,7 @@ const isSameMinute = (d1: Date, d2: Date) => {
 };
 
 const ChatScreen = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
-
-  useEffect(() => {
-    const parsed = (chatMessagesData as DataMessage[])
-      .map((m) => ({
-        ...m,
-        sentAt: new Date(m.sentAt), // string → Date 변환
-      }))
-      .sort((a, b) => a.sentAt.getTime() - b.sentAt.getTime()); // 오래된 순으로 정렬
-    setMessages(parsed);
-  }, []);
+  const { messages } = useChat();
 
   return (
     <div>
@@ -64,7 +37,7 @@ const ChatScreen = () => {
               <div className="flex justify-center">
                 <span className="mb-[3px] rounded-[1000px] bg-[#ECEEF0] px-[23px] py-[5px] text-center text-[9px] font-normal text-[#6F7173]">
                   {formatDate(msg.sentAt)}
-                </span>{' '}
+                </span>
               </div>
             )}
             <div className="flex flex-row gap-[10px]">
