@@ -1,0 +1,107 @@
+[
+  {
+    "name": "정시빈",
+    "statusMessage": "오늘도 화이팅!",
+    "profileImage": "",
+    "profileMusic": "NewJeans - ETA",
+    "favorite": true
+  },
+  {
+    "name": "최지윤",
+    "statusMessage": "집에 가고 싶다",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  },
+  {
+    "name": "승연진",
+    "statusMessage": "Golden - HUNTER",
+    "profileImage": "",
+    "profileMusic": "SEVENTEEN - Super",
+    "favorite": true
+  },
+  {
+    "name": "나연",
+    "statusMessage": "당분간 혼자만 가능",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  },
+  {
+    "name": "이예진",
+    "statusMessage": "💫",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": true
+  },
+  {
+    "name": "홍민서",
+    "statusMessage": "좋은 하루",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  },
+  {
+    "name": "김채원",
+    "statusMessage": "열공 모드",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  },
+  {
+    "name": "이정원",
+    "statusMessage": "주말만 기다린다",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  },
+  {
+    "name": "이진리",
+    "statusMessage": "커피는 사랑",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": true
+  },
+  {
+    "name": "김나연",
+    "statusMessage": "꿈을 향해",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  },
+  {
+    "name": "엄마",
+    "statusMessage": "밥 먹었니?",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": true
+  },
+  {
+    "name": "아빠",
+    "statusMessage": "건강이 최고",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  },
+  {
+    "name": "박지훈",
+    "statusMessage": "운동 중",
+    "profileImage": "",
+    "profileMusic": "BTS - Dynamite",
+    "favorite": false
+  },
+  {
+    "name": "한수민",
+    "statusMessage": "드라마 정주행 중",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  },
+  {
+    "name": "윤서준",
+    "statusMessage": "게임은 삶",
+    "profileImage": "",
+    "profileMusic": "",
+    "favorite": false
+  }
+]
