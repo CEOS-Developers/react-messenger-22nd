@@ -1,0 +1,11 @@
+[
+  { "id": "all", "label": "전체" },
+  { "id": "favorite", "label": "즐겨찾기" },
+  { "id": "birthday", "label": "생일" },
+  { "id": "family", "label": "가족" },
+  { "id": "work", "label": "회사" },
+  { "id": "friend", "label": "친구" },
+  { "id": "club", "label": "동아리" },
+  { "id": "FE", "label": "FE" },
+  { "id": "design", "label": "디자인" }
+]
