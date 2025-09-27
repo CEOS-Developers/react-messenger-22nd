@@ -1,0 +1,86 @@
+[
+  {
+    "roomId": "1",
+    "sender": "friend",
+    "message": "안녕하세요! Room 1입니다.",
+    "time": "3:00 PM"
+  },
+  {
+    "roomId": "1",
+    "sender": "me",
+    "message": "반갑습니다!",
+    "time": "3:01 PM"
+  },
+  {
+    "roomId": "2",
+    "sender": "friend",
+    "message": "Room 2에 오신 걸 환영합니다.",
+    "time": "4:00 PM"
+  },
+  {
+    "roomId": "2",
+    "sender": "me",
+    "message": "잘 부탁드립니다.",
+    "time": "4:01 PM"
+  },
+  {
+    "roomId": "3",
+    "sender": "friend",
+    "message": "Room 3에서 새로운 소식이 있어요.",
+    "time": "2:15 PM"
+  },
+  {
+    "roomId": "3",
+    "sender": "me",
+    "message": "좋아요, 확인할게요.",
+    "time": "2:17 PM"
+  },
+  {
+    "roomId": "4",
+    "sender": "friend",
+    "message": "Room 4 채팅 시작합니다.",
+    "time": "1:00 PM"
+  },
+  {
+    "roomId": "4",
+    "sender": "me",
+    "message": "알겠습니다!",
+    "time": "1:02 PM"
+  },
+  {
+    "roomId": "5",
+    "sender": "friend",
+    "message": "Room 5의 공지사항입니다.",
+    "time": "5:30 PM"
+  },
+  {
+    "roomId": "5",
+    "sender": "me",
+    "message": "확인했습니다.",
+    "time": "5:32 PM"
+  },
+  {
+    "roomId": "6",
+    "sender": "friend",
+    "message": "Room 6에 오신 걸 환영합니다!",
+    "time": "6:00 PM"
+  },
+  {
+    "roomId": "6",
+    "sender": "me",
+    "message": "안녕하세요~",
+    "time": "6:05 PM"
+  },
+  {
+    "roomId": "7",
+    "sender": "friend",
+    "message": "Room 7 마지막 테스트 메시지입니다.",
+    "time": "7:00 PM"
+  },
+  {
+    "roomId": "7",
+    "sender": "me",
+    "message": "좋아요, 테스트 완료!",
+    "time": "7:02 PM"
+  }
+]
