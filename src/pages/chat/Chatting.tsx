@@ -37,7 +37,7 @@ function Chatting() {
       <div>
         <ul className="mb-4 flex cursor-pointer flex-col gap-4 px-4">
           {[1, 2, 3, 4, 5, 6, 7].map((i) => (
-            <li key={i} className="flex items-center gap-4 px-4" onClick={() => navigate('/chattingroom')}>
+            <li key={i} className="flex items-center gap-4 px-4" onClick={() => navigate('/chattingroom/${i}')}>
               <img src={profile} /> {/* 채팅방 이미지 */}
               <div className="w-full">
                 <p className="flex justify-between">
