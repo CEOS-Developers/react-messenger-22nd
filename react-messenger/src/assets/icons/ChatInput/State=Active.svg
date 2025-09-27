@@ -1,0 +1,24 @@
+<svg width="80" height="86" viewBox="0 0 80 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-42" y="-40" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(30px);clip-path:url(#bgblur_0_47_811_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_d_47_811)" data-figma-bg-blur-radius="60">
+<path d="M18 40C18 28.9543 26.9543 20 38 20C49.0457 20 58 28.9543 58 40C58 51.0457 49.0457 60 38 60C26.9543 60 18 51.0457 18 40Z" fill="#1A75FF" shape-rendering="crispEdges"/>
+<mask id="mask0_47_811" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="26" y="28" width="24" height="24">
+<rect x="26" y="28" width="24" height="24" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_47_811)">
+<path d="M45.9229 40.839L31.9655 46.7235C31.6641 46.844 31.3779 46.8181 31.1067 46.6458C30.8355 46.4733 30.7 46.2229 30.7 45.8948V34.1063C30.7 33.7781 30.8355 33.5278 31.1067 33.3553C31.3779 33.1829 31.6641 33.157 31.9655 33.2775L45.9229 39.162C46.2948 39.3262 46.4807 39.6057 46.4807 40.0005C46.4807 40.3953 46.2948 40.6748 45.9229 40.839ZM32.2 45.0005L44.05 40.0005L32.2 35.0005V38.6928L37.623 40.0005L32.2 41.3083V45.0005Z" fill="white"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_47_811" x="-42" y="-40" width="160" height="160" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="12.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_47_811"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_47_811" result="shape"/>
+</filter>
+<clipPath id="bgblur_0_47_811_clip_path" transform="translate(42 40)"><path d="M18 40C18 28.9543 26.9543 20 38 20C49.0457 20 58 28.9543 58 40C58 51.0457 49.0457 60 38 60C26.9543 60 18 51.0457 18 40Z"/>
+</clipPath></defs>
+</svg>
