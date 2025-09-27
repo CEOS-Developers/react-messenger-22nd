@@ -2,12 +2,14 @@ import { useRef, useEffect } from 'react';
 import type { Message, User } from '@/types/chat'; 
 import MessageBubble from '@/components/chatroom/MessageBubble';
 import DateSeparator from '@/components/chatroom/DateSeparator';
+import { findUserById } from '@/utils/userUtils';
+import { formatTime } from '@/utils/timeUtils';
+import { shouldShowProfile, isLastInTimeGroup, getMessageMargin } from '@/utils/messageUtils';
 
 interface ChatAreaProps {
   messages: Message[];
   users: User[];
   currentUserId: string;
-  // isGroupChat: boolean; // 그룹 채팅 여부 (현재는 사용x)
 }
 
 const ChatArea = ({ messages, users, currentUserId}: ChatAreaProps) => {
@@ -22,89 +24,6 @@ const ChatArea = ({ messages, users, currentUserId}: ChatAreaProps) => {
     }
   }, [messages]);
 
-  // 사용자 정보 찾기
-  const getUser = (userId: string) => {
-    return users.find(user => user.id === userId) || {
-      // 사용자 정보가 없을 때 기본값 
-      id: userId, 
-      name: '알 수 없음', 
-      profile: '@/assets/svgs/chatroom/default-profile.svg'
-    };
-  };
-
-  // 프로필 표시 여부 함수
-  const shouldShowProfile = (currentMessage: Message, index: number) => {
-    
-    if (currentMessage.userId === currentUserId) 
-      return false; // 내 메시지는 프로필 표시 안함
-  
-    // 첫 메시지는 항상 프로필 표시
-    if (index === 0) 
-      return true; 
-    
-    const prevMessage = messages[index - 1];
-    
-    // 날짜가 바뀌면 프로필 표시
-    if (currentMessage.date) 
-      return true;
-    
-    // 이전 메시지와 다른 사용자면 프로필 표시
-    if (prevMessage.userId !== currentMessage.userId) 
-      return true;
-    
-    // 같은 사용자지만 시간(분)이 다르면 프로필 표시
-    const currentTime = new Date(currentMessage.timestamp);
-    const prevTime = new Date(prevMessage.timestamp);
-    
-    return currentTime.getMinutes() !== prevTime.getMinutes() ||
-           currentTime.getHours() !== prevTime.getHours();
-  };
-
-  // 같은 시간(분) 그룹의 마지막 메시지인지 확인
-  const isLastInTimeGroup = (currentMessage: Message, index: number) => {
-    // 마지막 메시지면 true
-    if (index === messages.length - 1) 
-      return true; 
-
-    const nextMessage = messages[index + 1];
-    const currentTime = new Date(currentMessage.timestamp);
-    const nextTime = new Date(nextMessage.timestamp);
-    
-    // 다음 메시지가 다른 사용자거나, 분/시간이 다르면 마지막
-    return currentMessage.userId !== nextMessage.userId || 
-           currentTime.getMinutes() !== nextTime.getMinutes() ||
-           currentTime.getHours() !== nextTime.getHours();
-  };
-
-  // 메시지 간격 계산
-  const getMessageMargin = (currentMessage: Message, index: number) => {
-    if (index === 0) return ''; // 첫 메시지는 간격 없음
-
-    const prevMessage = messages[index - 1];
-    const currentTime = new Date(currentMessage.timestamp);
-    const prevTime = new Date(prevMessage.timestamp);
-
-    // 날짜 구분선이 있으면 간격 없음
-    if (currentMessage.date) return '';
-
-    // 다른 사용자의 메시지면 12px
-    if (currentMessage.userId !== prevMessage.userId) return 'mt-3';
-
-    // 같은 사용자, 같은 분이면 4px
-    if (currentTime.getMinutes() === prevTime.getMinutes() &&
-        currentTime.getHours() === prevTime.getHours()) {
-      return 'mt-1';
-    }
-
-    // 같은 사용자, 다른 분이면 12px
-    return 'mt-3';
-  };
-
-  const formatTime = (timestamp: string) => {
-    const date = new Date(timestamp);
-    return `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-  };
-
   return (
     <div
       ref={chatAreaRef}
@@ -112,11 +31,11 @@ const ChatArea = ({ messages, users, currentUserId}: ChatAreaProps) => {
     >
       <div className="w-full max-w-[351px] mx-auto">
         {messages.map((message, index) => {
-          const user = getUser(message.userId);
+          const user = findUserById(users, message.userId);
           const isMe = message.userId === currentUserId;
-          const showProfile = shouldShowProfile(message, index);
-          const isLastInGroup = isLastInTimeGroup(message, index);
-          const marginClass = getMessageMargin(message, index);
+          const showProfile = shouldShowProfile(message, messages, index, currentUserId);
+          const isLastInGroup = isLastInTimeGroup(message, messages, index);
+          const marginClass = getMessageMargin(message, messages, index);
           
           return (
             <div key={message.id} className={marginClass}>
