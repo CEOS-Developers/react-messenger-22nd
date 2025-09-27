@@ -23,11 +23,18 @@ export default function Chat() {
       <header className="px-5 pt-3 pb-2">
         {/* 타이틀 줄 */}
         <div className="flex items-center justify-between">
+          {/* 탭 (비활성 톤) */}
+          <div className="mt-1 flex items-center gap-3 m-1 py-2 font-semibold text-neutral-400 text-[19px]">
+            <span className="text-neutral-900 text-[20px]">강의실</span>
+            <span className="text-neutral-200 text-[20px]">그룹챗</span>
+            <span className="text-neutral-200 text-[20px]">쪽지</span>
+          </div>
           {/* 우측 프로필/설정 아이콘 (플레이스홀더) */}
           <button
             type="button"
-            className="h-7 w-7 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-500"
+            className="h-7 w-7 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-500 hover:bg-gray-500"
             aria-label="profile"
+            onClick={()=> {}}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" className="opacity-70">
               <path
@@ -38,12 +45,7 @@ export default function Chat() {
           </button>
         </div>
 
-        {/* 탭 (비활성 톤) */}
-        <div className="mt-1 flex items-center gap-3 m-2 font-semibold text-neutral-400 text-[19px]">
-          <span className="text-neutral-900">강의실</span>
-          <span className="text-neutral-200">그룹챗</span>
-          <span className="text-neutral-200">쪽지</span>
-        </div>
+        
         <Dropdown
           data={semesters}
           value={semester}
@@ -66,7 +68,7 @@ export default function Chat() {
                 <div className="h-10 w-10 rounded-full bg-neutral-200 shrink-0" />
                 {/* 타이틀/이름 */}
                 <div className="flex-1 text-left">
-                  <div className="text-[15px] text-neutral-900">{r.title}</div>
+                  <div className="text-[15px] font-semibold text-neutral-800">{r.title}</div>
                   <div className="text-[13px] text-neutral-500">{r.name}</div>
                 </div>
                 {/* 우측 + 아이콘 (회색 버튼) */}

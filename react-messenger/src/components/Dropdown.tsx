@@ -47,7 +47,7 @@ export default function Dropdown({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`w-[336px] h-[41px] ${surfaceClass}
+        className={`w-[298px] h-[41px] ${surfaceClass}
         rounded-md border border-[#D9D9D9]
         px-[10px] py-2
         text-sm text-neutral-800
@@ -68,7 +68,7 @@ export default function Dropdown({
       {/* 옵션 목록 (top: 38px, w 100%, max-h 200px, 스크롤) */}
       <ul
         role="listbox"
-        className={`absolute left-0 z-10 w-[336px]
+        className={`absolute left-0 z-10 w-[298px]
         mt-[10px] rounded-md bg-[#FEFEFE]
         text-sm shadow-md overflow-y-auto
         transition-all ${open ? "max-h-[200px] border border-[#CCCCCC]" : "max-h-0 border-0"}

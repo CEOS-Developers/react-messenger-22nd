@@ -52,9 +52,10 @@ export default function ChatRoom() {
     const min = now.getMinutes();
     const ampm = hour < 12 ? "오전" : "오후";
     const ampmHour = String(((hour + 11) % 12) + 1);
+    const minPadding = String(min).padStart(2,"0");
     setMessages((prev) => [
       ...prev,
-      { id: Date.now(), user: "me", text: v, time: `${ampm} ${ampmHour}: ${min}` },
+      { id: Date.now(), user: "me", text: v, time: `${ampm} ${ampmHour}:${minPadding}` },
     ]);
     setInput("");
     if (inputRef.current) {
@@ -130,27 +131,26 @@ export default function ChatRoom() {
               <div className={`flex ${mine ? "justify-end" : "justify-start"}`}>
                 {/* 상대 메시지는 아바타+이름 렌더 */}
                 {!mine && (
-                  <div className="mr-2 shrink-0 flex items-center translate-y-1">
+                  <div className="mr-2 shrink-0 flex items-start gap-2 translate-y-1 ">
                     <img
                       src={m.url || "/icons/defaultProfile.svg"}
                       alt={m.name || "상대"}
-                      className="w-7 h-7 rounded-full bg-gray-300"
+                      className="w-5.5 h-7 rounded-full "
                     />
-                    <span className="mt-1 text-[10px] text-gray-500 max-w-[64px] truncate">
+                    <span className="mt-1 text-[10px] text-gray-500 max-w-[70px] truncate">
                       {m.name || "상대"}
                     </span>
                   </div>
                 )}
               </div>
               {/* 말풍선 + 시간 */}
-              <div className={`flex items-end gap-1 ${mine ? "flex-row-reverse" : "flex-row"}`}>
+              <div className={`flex flex-col items-end gap-1 ${mine ? "flex-row-reverse" : "flex-row"}`}>
                 {" "}
-                {/* [changed] */}
                 <span
                   className={[
                     "inline-block",
                     "rounded-2xl px-3 py-2 text-[13px] leading-5",
-                    "max-w-[78vw]",
+                    "max-w-[230px]",
                     mine
                       ? "bg-white border border-gray-200 text-gray-800"
                       : "bg-gray-100 text-gray-700",
@@ -182,7 +182,7 @@ export default function ChatRoom() {
             ref={inputRef}
             className="flex-1 min-w-0 resize-none outline-none text-[13px] leading-5 max-h-[120px]
                        py-3"
-            placeholder="다른 수강생과 대화해보세요!!!!!!!!!!!!!!!!"
+            placeholder="다른 수강생과 대화해보세요"
             value={input}
             rows={1}
             onChange={(e) => onChangeInput(e.target.value)}
