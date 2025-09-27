@@ -9,6 +9,7 @@
 
 };
 
+//상대가 보낸 (데모) 메세지 타입
  type receivedMsg = {
     id: string;
     text: string;
