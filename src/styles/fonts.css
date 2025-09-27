@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Pretendard";
+  src: url("@/assets/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 100 900; /* font weight 100부터 900까지 */
+  font-display: swap; /* 폰트가 로드되기 전까지 시스템 폰트를 사용(swap 방식) */
+}
+
+@theme {
+  /* 타이포그래피 */
+  --text-headline1: 23px;
+  --text-headline1--font-weight: 600;
+  --text-headline1--line-height: 150%;
+  --text-headline1--letter-spacing: 0;
+
+  --text-headline2: 22px;
+  --text-headline2--font-weight: 600;
+  --text-headline2--line-height: 150%;
+  --text-headline2--letter-spacing: 0;
+
+  --text-body1: 17px;
+  --text-body1--font-weight: 600;
+  --text-body1--line-height: 150%;
+  --text-body1--letter-spacing: 0;
+
+  --text-body2-sb: 14px;
+  --text-body2-sb--font-weight: 600;
+  --text-body2-sb--line-height: 150%;
+  --text-body2-sb--letter-spacing: 0;
+
+  --text-body2-m: 14px;
+  --text-body2-m--font-weight: 500;
+  --text-body2-m--line-height: 150%;
+  --text-body2-m--letter-spacing: 0;
+
+  --text-body3-m1: 13px;
+  --text-body3-m1--font-weight: 500;
+  --text-body3-m1--line-height: 150%;
+  --text-body3-m1--letter-spacing: 0;
+
+  --text-body3-m2: 13px;
+  --text-body3-m2--font-weight: 500;
+  --text-body3-m2--line-height: 150%;
+  --text-body3-m2--letter-spacing: 0;
+
+  --text-body3-r: 13px;
+  --text-body3-r--font-weight: 400;
+  --text-body3-r--line-height: 150%;
+  --text-body3-r--letter-spacing: 0;
+
+  --text-caption1-r: 12px;
+  --text-caption1-r--font-weight: 400;
+  --text-caption1-r--line-height: 150%;
+  --text-caption1-r--letter-spacing: 0;
+
+  --text-caption2: 11px;
+  --text-caption2--font-weight: 500;
+  --text-caption2--line-height: 150%;
+  --text-caption2--letter-spacing: 0;
+
+  --text-caption3-m: 11px;
+  --text-caption3-m--font-weight: 500;
+  --text-caption3-m--line-height: 150%;
+  --text-caption3-m--letter-spacing: 0;
+
+  --text-caption3-r: 11px;
+  --text-caption3-r--font-weight: 400;
+  --text-caption3-r--line-height: 150%;
+  --text-caption3-r--letter-spacing: 0;
+}
