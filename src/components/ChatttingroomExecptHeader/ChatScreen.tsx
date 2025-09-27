@@ -35,17 +35,25 @@ const ChatScreen = () => {
         const isMine = msg.senderId === MY_ID;
 
         return (
-          <div key={msg.msgId}>
-            {!isMine && <img src={DefaultProfile} alt={msg.senderName} className="h-[24px] w-[24px] rounded-full" />}
-            <div>
-              {!isMine && <span>{msg.senderName}</span>}
-              <div>{msg.content}</div>
-              <span>
-                {msg.sentAt.toLocaleTimeString([], {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}
-              </span>
+          <div key={msg.msgId} className="px-[20px] py-[8px]">
+            <div className="flex flex-row gap-[10px]">
+              {!isMine && <img src={DefaultProfile} alt={msg.senderName} className="h-[44px] w-[44px] rounded-[6px]" />}
+              <div className="flex flex-col text-[11px]">
+                {!isMine && <span className="pt-[1px] font-semibold">{msg.senderName}</span>}
+
+                <div className="flex flex-row gap-[8px]">
+                  <span className="mt-[5px] rounded-[6px] bg-[#EBE4E0] px-[10px] py-[8px] font-normal">
+                    {msg.content}
+                  </span>
+                  <span className="mb-[1px] self-end font-normal text-[#888A8C]">
+                    {msg.sentAt.toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                      hour12: false,
+                    })}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         );
