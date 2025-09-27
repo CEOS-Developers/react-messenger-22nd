@@ -1,0 +1,17 @@
+[
+  {
+    "sender": "friend",
+    "message": "안녕하세요!",
+    "time": "10:00 AM"
+  },
+  {
+    "sender": "me",
+    "message": "안녕하세요. 반가워요!",
+    "time": "10:00 AM"
+  },
+  {
+    "sender": "friend",
+    "message": "오늘 뭐해요?",
+    "time": "10:00 AM"
+  }
+]
