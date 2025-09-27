@@ -1,5 +1,5 @@
 // src/pages/ChatRoom.tsx
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
 type Msg = {
@@ -14,6 +14,7 @@ type Msg = {
 
 export default function ChatRoom() {
   const nav = useNavigate();
+  const { roomId = "default" } = useParams();
 
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -23,6 +24,25 @@ export default function ChatRoom() {
     { id: 3, user: "me", text: "감사합니다~", time: "오후 2:05" },
   ]);
   const listRef = useRef<HTMLDivElement>(null);
+
+  // 첫 렌더링
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(`messages:${roomId}`);
+      if (saved) setMessages(JSON.parse(saved));
+    } catch (e) {
+      console.warn("Failed to parse messages from localStorage:", e);
+    }
+  }, [roomId]);
+
+  // 변경될 때마다
+  useEffect(() => {
+    try {
+      localStorage.setItem(`messages:${roomId}`, JSON.stringify(messages));
+    } catch (e) {
+      console.warn("Failed to save messages to localStorage:", e);
+    }
+  }, [messages, roomId]);
 
   const send = () => {
     const v = input.trim();
