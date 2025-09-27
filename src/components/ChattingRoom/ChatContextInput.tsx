@@ -41,8 +41,6 @@ const ChattingContextInput = () => {
       />
       <div
         className={`${isHovered ? 'border-black-100 border' : 'border border-transparent'} flex h-[36px] flex-1 items-center rounded-[6px] bg-white`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         <input
           value={inputValue}
@@ -50,6 +48,8 @@ const ChattingContextInput = () => {
           onKeyDown={handleKeyDown}
           placeholder="메세지 입력"
           className={`placeholder-[#BABCBE]} flex-1 border-none px-[10px] outline-none`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         />
         <img src={Imoji} alt="imoji" className={`mr-[10px] h-[24px] w-[24px] cursor-pointer`} />
       </div>

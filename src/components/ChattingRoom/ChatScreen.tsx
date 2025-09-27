@@ -23,6 +23,7 @@ const ChatScreen = () => {
       {messages.map((msg, idx) => {
         const isMine = msg.senderId === MY_ID;
         const prevMsg = idx > 0 ? messages[idx - 1] : null;
+        const nextMsg = idx < messages.length - 1 ? messages[idx + 1] : null;
 
         // 날짜 비교
         const showDate = idx === 0 || formatDate(msg.sentAt) !== formatDate(messages[idx - 1].sentAt);
@@ -32,6 +33,9 @@ const ChatScreen = () => {
           !prevMsg ||
           prevMsg.senderId !== msg.senderId ||
           (prevMsg.senderId === msg.senderId && !isSameMinute(prevMsg.sentAt, msg.sentAt));
+
+        // 시간 표시 여부
+        const showTime = !nextMsg || nextMsg.senderId !== msg.senderId || !isSameMinute(nextMsg.sentAt, msg.sentAt);
 
         return (
           <div>
@@ -57,7 +61,9 @@ const ChatScreen = () => {
                       >
                         {msg.content}
                       </span>
-                      <span className="mb-[1px] self-end font-normal text-[#888A8C]">{formatTime(msg.sentAt)}</span>
+                      {showTime && (
+                        <span className="mb-[1px] self-end font-normal text-[#888A8C]">{formatTime(msg.sentAt)}</span>
+                      )}
                     </div>
                   </div>
                 </div>
