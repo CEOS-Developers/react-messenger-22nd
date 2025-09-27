@@ -1,6 +1,7 @@
 import ContactAction from "../components/chatRoom/ContactAction";
 import MessageInput from "../components/chatRoom/MessageInput";
 import RecievedChat from "../components/chatRoom/ReceivedChat";
+import SentChat from "../components/chatRoom/SentChat";
 
 const ChatRoom = () => {
   return (
@@ -15,9 +16,12 @@ const ChatRoom = () => {
         <RecievedChat text="이러쿵 저렇궁" />
         <RecievedChat text="이러쿵 저렇궁" />
         <RecievedChat text="이러쿵 저렇궁" />
+        <SentChat text="요래요래" />
+        <SentChat text="요래요래" />
         <RecievedChat text="이러쿵 저렇궁" />
         <RecievedChat text="이러쿵 저렇궁" />
         <RecievedChat text="이러쿵 저렇궁" />
+        <SentChat text="요래요래" />
       </div>
       <div className="absolute bottom-0 left-0 w-full">
         <MessageInput />
