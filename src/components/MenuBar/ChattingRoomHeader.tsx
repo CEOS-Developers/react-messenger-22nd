@@ -1,4 +1,4 @@
-import BeforeBtn from '@/assets/svgs/menubar/upper-menubar/before-arrow-button.svg';
+import BeforeBtn from '@/assets/svgs/menubar/upper-menubar/before-arrow-button-black.svg';
 import Search from '@/assets/svgs/menubar/upper-menubar/search.svg';
 import MenuHamburger from '@/assets/svgs/menubar/upper-menubar/menu-hamburger.svg';
 

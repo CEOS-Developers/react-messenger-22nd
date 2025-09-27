@@ -1,5 +1,6 @@
 // import { useState } from 'react';
 import ChattingRoom from './pages/ChattingRoom';
+// import Profile from './pages/Profile';
 import { ChatProvider } from './context/ChatContext';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <ChatProvider>
       <div className="font-sans">
         <ChattingRoom />
+        {/* <Profile /> */}
       </div>
     </ChatProvider>
   );
