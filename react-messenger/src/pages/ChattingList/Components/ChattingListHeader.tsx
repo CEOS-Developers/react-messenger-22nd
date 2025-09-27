@@ -1,6 +1,6 @@
 export default function ChattingListHeader() {
   return (
-    <header className="!mx-2 !my-3 flex justify-between items-center pt-[env(safe-area-inset-top)]">
+    <header className="!mx-2 !my-3 !mb-6 flex justify-between items-center pt-[env(safe-area-inset-top)]">
       <h1 className="text-headline-1 !font-semibold text-gray-800 !text-2xl">
         채팅
       </h1>

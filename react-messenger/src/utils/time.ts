@@ -42,4 +42,9 @@ export function toTimeLabel(ts: number): string {
   return d.format("YYYY.M.D"); //"2024.12.31"
 }
 
+export function toTimeLabelChat(ts: number): string {
+  if (!ts) return "";
+  return dayjs(ts).format("A h:mm");
+}
+
 export { dayjs };

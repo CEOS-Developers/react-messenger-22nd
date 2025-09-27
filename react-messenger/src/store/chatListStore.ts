@@ -2,9 +2,7 @@ import { create } from "zustand";
 import { toTimeLabel } from "@/utils/time";
 import { api } from "../api/api";
 
-import type { Room } from "@/types/room";
-import type { Message } from "@/types/message";
-import type { User } from "@/types/user";
+import type { User, Room, Message } from "@/types";
 
 // 채팅목록용 타입
 export type ChatPreview = {

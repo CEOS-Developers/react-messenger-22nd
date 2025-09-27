@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { User, Message, Room } from "../types/index";
+import type { User } from "../types/index";
 import { api } from "../api/api";
 
 type Collection = { id: string; label: string };

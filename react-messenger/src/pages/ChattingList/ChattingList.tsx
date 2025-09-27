@@ -38,6 +38,7 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { useChat } from "../../store/chatListStore";
 import ChatRow from "./Components/ChatRow";
+import { Link } from "react-router-dom";
 //import { shallow } from "zustand/shallow";
 
 export default function ChattingList() {
@@ -89,10 +90,17 @@ export default function ChattingList() {
   }
 
   return (
-    <div className="mx-auto min-h-screen select-none">
+    <div className="mx-auto min-h-screen select-none ">
       <main className="divide-y divide-gray-200">
         {data.map((p) => (
-          <ChatRow key={p.roomId} item={p} />
+          <Link
+            key={p.roomId}
+            to={`/chat/${p.roomId}`}
+            state={{ title: p.title }}
+            className="block focus:outline-none focus:ring-2 focus:ring-ink-300"
+          >
+            <ChatRow item={p} />
+          </Link>
         ))}
       </main>
     </div>
