@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import DefaultProfile from '@/assets/svgs/profile/profileIMG-default.svg';
-import { useChat, MY_ID } from '@/context/ChatContext';
+// import { useChat, MY_ID } from '@/context/ChatContext';
+import { MY_ID } from '@/type/ChatType';
+import { useChat } from '@/hooks/useChat';
 
 // Date 객체 → "YYYY년 M월 D일"
 const formatDate = (date: Date) => `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
@@ -43,7 +45,7 @@ const ChatScreen = () => {
             <div key={msg.msgId} className={`px-[20px] py-[8px] ${isMine ? 'justify-end' : 'justify-start'}`}>
               {showDate && (
                 <div className="flex justify-center">
-                  <span className="mb-[3px] rounded-[1000px] bg-[#ECEEF0] px-[23px] py-[5px] text-center text-[9px] font-normal text-[#6F7173]">
+                  <span className="mb-[3px] rounded-[1000px] bg-[#ECEEF0] px-[23px] py-[5px] text-center text-[9.5px] font-normal text-[#6F7173]">
                     {formatDate(msg.sentAt)}
                   </span>
                 </div>

@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { useChat, MY_ID } from '@/context/ChatContext';
+// import { useChat, MY_ID } from '@/context/ChatContext';
+import { MY_ID } from '@/type/ChatType';
+import { useChat } from '@/hooks/useChat';
 import InputAddButton from '@/assets/svgs/chat/input-add-button.svg';
 import Imoji from '@/assets/svgs/chat/imoji.svg';
 import SendButton from '@/assets/svgs/chat/send-button.svg';
