@@ -10,8 +10,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout/>}>
-            <Route path="/" element={<Home />} />
-            <Route path="/chatlist" element={<ChatList />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<ChatList />} />
             <Route path="/chatroom/:chatRoomId" element={<ChatRoom />} />
           </Route>
         </Routes>
