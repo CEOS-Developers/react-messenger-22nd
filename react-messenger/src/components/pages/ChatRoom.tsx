@@ -19,14 +19,7 @@ export default function ChatRoom() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [messages, setMessages] = useState<Msg[]>([
     { id: 1, user: "me", text: "오늘 강의 휴강 맞나요?", date: "2025.09.17", time: "오후 2:05" },
-    {
-      id: 2,
-      user: "other",
-      text: "넵 보강은 28일이에요!",
-      time: "오후 2:05",
-      name: "학생 34",
-      url: "/icons/defaultProfile.svg",
-    },
+    { id: 2, user: "other", text: "넵 보강은 28일이에요!", time: "오후 2:05", name: "학생 34", url: "/icons/defaultProfile.svg",},
     { id: 3, user: "me", text: "감사합니다~", time: "오후 2:05" },
   ]);
   const listRef = useRef<HTMLDivElement>(null);
