@@ -22,9 +22,9 @@ export default function Chat() {
       {/* 상단 영역 */}
       <header className="px-5 pt-3 pb-2">
         {/* 타이틀 줄 */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between h1-bd text-black">
           {/* 탭 (비활성 톤) */}
-          <div className="mt-1 flex items-center gap-3 m-1 py-2 font-semibold text-neutral-400 text-[19px]">
+          <div className="mt-1 flex items-center gap-3 m-1 py-2 body2-sb text-neutral-400 text-[19px]">
             <span className="text-neutral-900 text-[20px]">강의실</span>
             <span className="text-neutral-200 text-[20px]">그룹챗</span>
             <span className="text-neutral-200 text-[20px]">쪽지</span>
@@ -34,7 +34,7 @@ export default function Chat() {
             type="button"
             className="h-7 w-7 rounded-full bg-neutral-200 flex items-center justify-center text-neutral-500 hover:bg-gray-500"
             aria-label="profile"
-            onClick={()=> {}}
+            onClick={() => {}}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" className="opacity-70">
               <path
@@ -45,7 +45,6 @@ export default function Chat() {
           </button>
         </div>
 
-        
         <Dropdown
           data={semesters}
           value={semester}

@@ -18,9 +18,17 @@ export default function ChatRoom() {
 
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
   const [messages, setMessages] = useState<Msg[]>([
     { id: 1, user: "me", text: "오늘 강의 휴강 맞나요?", date: "2025.09.17", time: "오후 2:05" },
-    { id: 2, user: "other", text: "넵 보강은 28일이에요!", time: "오후 2:05", name: "학생 34", url: "/icons/defaultProfile.svg",},
+    {
+      id: 2,
+      user: "other",
+      text: "넵 보강은 28일이에요!",
+      time: "오후 2:05",
+      name: "학생 34",
+      url: "/icons/defaultProfile.svg",
+    },
     { id: 3, user: "me", text: "감사합니다~", time: "오후 2:05" },
   ]);
   const listRef = useRef<HTMLDivElement>(null);
@@ -52,7 +60,7 @@ export default function ChatRoom() {
     const min = now.getMinutes();
     const ampm = hour < 12 ? "오전" : "오후";
     const ampmHour = String(((hour + 11) % 12) + 1);
-    const minPadding = String(min).padStart(2,"0");
+    const minPadding = String(min).padStart(2, "0"); //2로 하면 오후 3: 38 이런식 왜지?
     setMessages((prev) => [
       ...prev,
       { id: Date.now(), user: "me", text: v, time: `${ampm} ${ampmHour}:${minPadding}` },
@@ -108,11 +116,10 @@ export default function ChatRoom() {
       <div className="px-4 py-2 text-[11.5px] text-center text-gray-300 leading-snug">
         누구나 기분 좋게 참여할 수 있는 커뮤니티를 만들기 위해 커뮤니티 이용규칙을 준수해주세요.
         커뮤니티 이용규칙을 위반할 경우 서비스 이용이 제한될 수 있습니다.{" "}
-        <button className="underline text-gray-300" onClick={() => {}}>
+        <button className="underline text-gray-300 hover:bg-gray-100 active:bg-gray-200" onClick={() => {}}>
           커뮤니티 이용규칙 전체 보기
         </button>
       </div>
-
       {/* 메시지 리스트 */}
       <div ref={listRef} className="flex-1 overflow-y-auto px-3 py-1 space-y-4">
         {messages.map((m) => {
@@ -134,17 +141,19 @@ export default function ChatRoom() {
                   <div className="mr-2 shrink-0 flex items-start gap-2 translate-y-1 ">
                     <img
                       src={m.url || "/icons/defaultProfile.svg"}
-                      alt={m.name || "상대"}
-                      className="w-5.5 h-7 rounded-full "
+                      alt={m.name || "user"}
+                      className="w-[22px] h-7 rounded-full "
                     />
                     <span className="mt-1 text-[10px] text-gray-500 max-w-[70px] truncate">
-                      {m.name || "상대"}
+                      {m.name || "user"}
                     </span>
                   </div>
                 )}
               </div>
               {/* 말풍선 + 시간 */}
-              <div className={`flex flex-col items-end gap-1 ${mine ? "flex-row-reverse" : "flex-row"}`}>
+              <div
+                className={`flex flex-col items-end gap-1 ${mine ? "flex-row-reverse" : "flex-row"}`}
+              >
                 {" "}
                 <span
                   className={[
