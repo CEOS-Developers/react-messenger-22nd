@@ -10,6 +10,7 @@ interface ChatAreaProps {
   messages: Message[];
   users: User[];
   currentUserId: string;
+  chatRoomParticipants: string[]; // 채팅방 참여자 목록
 }
 
 const ChatArea = ({ messages, users, currentUserId}: ChatAreaProps) => {
