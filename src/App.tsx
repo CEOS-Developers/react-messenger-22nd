@@ -5,8 +5,9 @@ import FriendList from './pages/friendList/FriendList';
 import Setting from './pages/settings/Setting';
 import Sidebar from './pages/sidebar/Sidebar';
 import ChattingRoom from './pages/chat/ChattingRoom';
-import Profile from './pages/friendList/profile';
+
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Profile from './pages/friendList/Profile';
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
