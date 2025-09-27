@@ -1,6 +1,5 @@
-// import { useState } from 'react';
 import ChattingRoom from './pages/ChattingRoom';
-// import Profile from './pages/Profile';
+import Profile from './pages/Profile';
 import { ChatProvider } from './context/ChatContext';
 
 function App() {

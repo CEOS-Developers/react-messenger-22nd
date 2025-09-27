@@ -7,7 +7,7 @@ import WifiBlack from '@/assets/svgs/statusbar/wifi-black.svg';
 import WifiWhite from '@/assets/svgs/statusbar/wifi-white.svg';
 import type { StatusBarProps } from '@/type/StatusBarType.types';
 
-const StatusBar = ({ theme = 'brown' }: StatusBarProps) => {
+const StatusBar = ({ theme = 'white' }: StatusBarProps) => {
   const time = useCurrentTime();
   const { hour, minute } = time;
 
