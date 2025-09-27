@@ -107,8 +107,8 @@ export const useChatStore = create<ChatState>()(
       updateLastMessage: (chatRoomId: string, message: Message) => {
         set(state => ({
           chatRooms: state.chatRooms.map(room => 
-            room.id === chatRoomId 
-              ? { ...room, lastMessage: message, updatedAt: message.timestamp }
+            room.chatId === chatRoomId
+              ? { ...room, lastMessage: message, lastUpdated: message.timestamp } // updatedAt → lastUpdated로 수정
               : room
           )
         }));
@@ -117,7 +117,7 @@ export const useChatStore = create<ChatState>()(
       updateUnreadCount: (chatRoomId: string, count: number) => {
         set(state => ({
           chatRooms: state.chatRooms.map(room => 
-            room.id === chatRoomId 
+            room.chatId === chatRoomId
               ? { ...room, unreadCount: count }
               : room
           )

@@ -1,16 +1,16 @@
-import type { Message, User } from './chat';
+import type { Message, User } from '@/types/chat';
 
 export type ChatRoomType = 'individual' | 'group';
 
 export interface ChatRoom {
-  id: string;
-  name: string;
-  type: ChatRoomType;
+  chatId: string;
+  chatName: string;
+  chatType: ChatRoomType;
   participants: string[]; // user IDs
   lastMessage?: Message;
   unreadCount: number;
   createdAt: string;
-  updatedAt: string;
+  lastUpdated: string;
 }
 
 export interface ChatListItem {

@@ -7,9 +7,8 @@ const ChatList = () => {
     <div className="flex flex-col h-full bg-gray-0">
       <ChatlistHeader />
       <Searchbar />
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold mb-4">채팅 목록 페이지</h1>
-        <p className="text-gray-600">여기에 채팅 목록 표시</p>
+      <div className="flex-1 flex flex-col items-center justify-center px-5 py-4 gap-6">
+        <div></div>
       </div>
 
       <Navbar />
