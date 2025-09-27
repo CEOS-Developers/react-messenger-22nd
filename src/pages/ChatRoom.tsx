@@ -99,7 +99,6 @@ const ChatRoom = () => {
         type="chatroom"
         title={getChatRoomTitle()}
         onBack={() => navigate(-1)}
-        // 헤더 클릭 기능 완전 제거
       />
 
       <ChatArea

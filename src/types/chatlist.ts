@@ -11,6 +11,7 @@ export interface ChatRoom {
   unreadCount: number;
   createdAt: string;
   lastUpdated: string;
+  messages: Message[]; 
 }
 
 export interface ChatListItem {
