@@ -16,7 +16,7 @@ const ChatRoom = () => {
   const { chatRoomId } = useParams<{ chatRoomId: string }>();
   
   // zustand store 사용
-  const { currentUserId, users, loadUsers, switchUser } = useUserStore();
+  const { currentUserId, users, loadUsers, switchToUser } = useUserStore();
   const { getMessages, setMessages, sendMessage } = useChatStore();
   
   // 현재 채팅방의 메시지 가져오기
@@ -59,6 +59,13 @@ const ChatRoom = () => {
     }
   };
 
+  // 사용자 이름 클릭 핸들러 (새로운 유저 전환 방식)
+  const handleUserNameClick = (userId: string) => {
+    if (currentChatRoom) {
+      switchToUser(userId, currentChatRoom.participants);
+    }
+  };
+
   // 새로운 메시지 전송 핸들러
   const handleSendMessage = (content: string) => {
     sendMessage(chatRoomId || '1', content, currentUserId);
@@ -78,14 +85,14 @@ const ChatRoom = () => {
         type="chatroom"
         title={getChatRoomTitle()}
         onBack={() => navigate(-1)}
-        onTitleClick={switchUser} // 임시로 기존 방식 유지 (다음 커밋에서 제거⚠️⚠️)
+        // onTitleClick 제거 - 더 이상 헤더 클릭으로 유저 전환하지 않음
       />
 
       <ChatArea
         messages={messages}
         users={users}
         currentUserId={currentUserId}
-        chatRoomParticipants={currentChatRoom.participants}
+        onUserNameClick={handleUserNameClick} // 사용자 이름 클릭 핸들러 전달
       />
 
       <MessageInput onSendMessage={handleSendMessage} />

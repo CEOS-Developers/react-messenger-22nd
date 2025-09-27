@@ -16,6 +16,7 @@ interface UserState {
   loadUsers: () => void;
   getUserById: (userId: string) => User | undefined;
   switchUser: () => void; // user1 <-> user2 전환
+  switchToUser: (userId: string, chatRoomParticipants: string[]) => void; // 특정 사용자로 전환
 }
 
 export const useUserStore = create<UserState>()(
@@ -42,6 +43,23 @@ export const useUserStore = create<UserState>()(
         const { currentUserId } = get();
         const newUserId = currentUserId === 'user2' ? 'user1' : 'user2';
         set({ currentUserId: newUserId });
+      },
+
+      switchToUser: (userId: string, chatRoomParticipants: string[]) => {
+        // 해당 사용자가 채팅방 참여자인지 확인
+        if (!chatRoomParticipants.includes(userId)) {
+          console.warn(`User ${userId}는 이 채팅방의 참여자가 아닙니다.`);
+          return;
+        }
+        
+        // 자기 자신으로는 전환하지 않음
+        const { currentUserId } = get();
+        if (userId === currentUserId) {
+          console.info('이미 해당 user의 시점입니다.');
+          return;
+        }
+        
+        set({ currentUserId: userId });
       }
     }),
     {

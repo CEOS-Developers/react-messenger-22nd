@@ -6,8 +6,10 @@ interface MessageBubbleProps {
   isMe: boolean;
   userName?: string;
   userProfile?: string;
+  userId?: string; // 사용자 ID 추가
   showProfile?: boolean;
   isLastInGroup?: boolean; // 같은 시간 그룹의 마지막 메시지인지
+  onUserNameClick?: (userId: string) => void; // 사용자 이름 클릭 핸들러 추가
 }
 
 const MessageBubble = ({
@@ -16,9 +18,19 @@ const MessageBubble = ({
   isMe,
   userName = "마밍",
   userProfile = DefaultProfile,
+  userId = "",
   showProfile = true,
-  isLastInGroup = true
+  isLastInGroup = true,
+  onUserNameClick
 }: MessageBubbleProps) => {
+  
+  // 사용자 이름 클릭 핸들러
+  const handleUserNameClick = () => {
+    if (onUserNameClick && userId && !isMe) {
+      onUserNameClick(userId);
+    }
+  };
+
   return (
     <div className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
       {/* 상대방 메시지일 때 프로필 */}
@@ -42,9 +54,14 @@ const MessageBubble = ({
       <div className={`flex flex-col ${isMe ? 'items-end' : 'items-start'}`}>
         {/* 상대방 이름 */}
         {!isMe && showProfile && (
-          <span className="text-body3-m2 mb-[4px] ml-1 tracking-[-0.12px]">
+          <button
+            onClick={handleUserNameClick}
+            className={`text-body3-m2 mb-[4px] ml-1 tracking-[-0.12px] text-left ${
+              onUserNameClick ? 'hover:text-green-4 cursor-pointer' : ''
+            }`}
+          >
             {userName}
-          </span>
+          </button>
         )}
         
         <div className={`flex items-end gap-1 ${isMe ? 'flex-row-reverse' : 'flex-row'}`}>

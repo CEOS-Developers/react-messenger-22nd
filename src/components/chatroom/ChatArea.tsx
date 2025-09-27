@@ -10,10 +10,10 @@ interface ChatAreaProps {
   messages: Message[];
   users: User[];
   currentUserId: string;
-  chatRoomParticipants: string[]; // 채팅방 참여자 목록
+  onUserNameClick?: (userId: string) => void; // 사용자 이름 클릭 핸들러 추가
 }
 
-const ChatArea = ({ messages, users, currentUserId}: ChatAreaProps) => {
+const ChatArea = ({ messages, users, currentUserId, onUserNameClick}: ChatAreaProps) => {
   // 스크롤을 맨 아래로 이동시키기 위한 ref
   const chatEndRef = useRef<HTMLDivElement>(null);
   const chatAreaRef = useRef<HTMLDivElement>(null);
@@ -55,8 +55,10 @@ const ChatArea = ({ messages, users, currentUserId}: ChatAreaProps) => {
                 isMe={isMe}
                 userName={user.name}
                 userProfile={user.profile}
+                userId={user.id}
                 showProfile={showProfile}
                 isLastInGroup={isLastInGroup}
+                onUserNameClick={onUserNameClick}
               />
             </div>
           );
