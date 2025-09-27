@@ -4,7 +4,7 @@ import MenuHamburger from '@/assets/svgs/menubar/upper-menubar/menu-hamburger.sv
 
 const ChattingRoomHeader = () => {
   return (
-    <div className="flex w-full justify-between gap-[10px] px-[20px]">
+    <div className="mb-[3px] flex w-full justify-between gap-[10px] px-[20px]">
       <button className="cursor-pointer">
         <img src={BeforeBtn} alt="before-btn" className="h-[24px] w-[24px]" />
       </button>

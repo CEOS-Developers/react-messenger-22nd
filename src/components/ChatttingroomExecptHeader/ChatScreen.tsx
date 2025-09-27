@@ -29,13 +29,26 @@ const ChatScreen = () => {
     setMessages(parsed);
   }, []);
 
+  // Date 객체 → "YYYY년 M월 D일"
+  const formatDate = (date: Date) => `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+
   return (
     <div>
-      {messages.map((msg) => {
+      {messages.map((msg, idx) => {
         const isMine = msg.senderId === MY_ID;
+
+        // 날짜 비교
+        const showDate = idx === 0 || formatDate(msg.sentAt) !== formatDate(messages[idx - 1].sentAt);
 
         return (
           <div key={msg.msgId} className="px-[20px] py-[8px]">
+            {showDate && (
+              <div className="flex justify-center">
+                <span className="rounded-[1000px] bg-[#ECEEF0] px-[23px] py-[5px] text-center text-[9px] font-normal text-[#6F7173]">
+                  {formatDate(msg.sentAt)}
+                </span>{' '}
+              </div>
+            )}
             <div className="flex flex-row gap-[10px]">
               {!isMine && <img src={DefaultProfile} alt={msg.senderName} className="h-[44px] w-[44px] rounded-[6px]" />}
               <div className="flex flex-col text-[11px]">
