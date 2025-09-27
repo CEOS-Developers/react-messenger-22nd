@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../components/Header';
 import beforeIcon from '../../assets/before.svg';
 import profileIcon from '../../assets/profileImage.png';
@@ -16,35 +16,43 @@ interface Message {
   sender: string;
   message: string;
   time?: string;
+  roomId: string;
+  likes?: number; // 공감 수
+  likedByMe?: boolean; // 내가 공감했는지 여부(중복클릭 방지)
 }
 
 export default function ChattingRoom() {
   const navigate = useNavigate();
+  const { roomId } = useParams<{ roomId: string }>();
   const [messages, setMessages] = useState<Message[]>(() => {
     const stored = localStorage.getItem('chatMessages');
     return stored ? JSON.parse(stored) : [];
   });
   const [input, setInput] = useState('');
 
-  useEffect(() => {
-    setMessages(chatData);
-  }, []);
-
   // 스크롤 끝부분 참조
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  // 메시지 변경될 때마다 스크롤 끝으로 이동
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]);
 
   // 처음 로드될 때 localStorage 확인
   useEffect(() => {
-    const stored = localStorage.getItem('chatMessages');
+    if (!roomId) return;
+    const stored = localStorage.getItem(`chatMessages_${roomId}`);
     if (stored) {
       setMessages(JSON.parse(stored)); // localStorage 우선
     } else {
-      setMessages(chatData); // 없으면 data.json fallback
+      const roomMessages = chatData.filter((msg) => msg.roomId === roomId);
+      setMessages(roomMessages); // 없으면 data.json fallback
     }
-  }, []);
+  }, [roomId]);
 
   const handleSend = () => {
-    if (!input.trim()) return;
+    if (!input.trim() || !roomId) return;
 
     // 메시지 보낼때마다 현재 시간 가져오기
     const now = new Date();
@@ -59,13 +67,14 @@ export default function ChattingRoom() {
       sender: 'me',
       message: input,
       time: currentTime,
+      roomId,
     };
 
     // 상태 업데이트
     setMessages((prev) => {
       const updated = [...prev, newMessage];
       // localStorage에 저장
-      localStorage.setItem('chatMessages', JSON.stringify(updated));
+      localStorage.setItem(`chatMessages_${roomId}`, JSON.stringify(updated));
       return updated;
     });
     setInput('');
@@ -110,32 +119,36 @@ export default function ChattingRoom() {
             2024년 6월 19일{' '}
           </span>
         </div>
+
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`mb-2 flex items-end gap-1 ${msg.sender === 'me' ? 'justify-end' : 'justify-start'}`}
+            className={`mb-3 flex items-start gap-2 ${msg.sender === 'me' ? 'justify-end' : 'justify-start'}`}
           >
-            <div
-              className={`flex max-w-[70%] items-end rounded-tl-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3 py-1 ${
-                msg.sender === 'me' ? 'bg-green-50' : 'bg-white'
-              } `}
-            >
-              {msg.sender === 'me' ? (
-                <>
-                  <div className="text-base break-all">{msg.message}</div>
-                </>
-              ) : (
-                <>
-                  <div>{msg.message}</div>
-                </>
-              )}
+            {/* 친구 메시지일 때 프로필 */}
+            {msg.sender === 'friend' && <img src={profileIcon} alt="상대 프로필" className="h-9 w-9 rounded-full" />}
+
+            <div className={`flex flex-col ${msg.sender === 'me' ? 'items-end' : 'items-start'}`}>
+              {/* 친구 이름 */}
+              {msg.sender === 'friend' && <span className="mb-1 text-xs text-gray-500">친구 이름</span>}
+
+              <div className="flex items-end gap-1">
+                {msg.sender === 'me' && <span className="text-xs text-gray-700">{msg.time}</span>}
+
+                <div
+                  className={`max-w-[70%] rounded-tl-sm rounded-tr-xl rounded-br-xl rounded-bl-xl px-3 py-1 break-words ${
+                    msg.sender === 'me' ? 'bg-green-50' : 'bg-white'
+                  }`}
+                >
+                  {msg.message}
+                </div>
+
+                {msg.sender === 'friend' && <span className="text-xs font-extralight text-gray-600">{msg.time}</span>}
+              </div>
             </div>
-            {/* 시간 */}
-            <span className={`text-xs font-light text-gray-700 ${msg.sender === 'me' ? 'text-right' : 'text-left'}`}>
-              {msg.time}
-            </span>
           </div>
         ))}
+
         {/* 스크롤 위치 표시용 */}
         <div ref={messagesEndRef} />
       </div>

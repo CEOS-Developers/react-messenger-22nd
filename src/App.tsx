@@ -33,9 +33,9 @@ export default function App() {
           <Route path="/community" element={<Community />} />
           <Route path="/call" element={<Call />} />
           <Route path="/setting" element={<Setting />} />
-          <Route path="/chattingroom/:id" element={<ChattingRoom />} />
+          <Route path="/chattingroom/:roomId" element={<ChattingRoom />} />
           <Route path="/profile/me" element={<Profile mode="my" />} />
-          <Route path="/profile/:id" element={<Profile mode="friend" />} />
+          <Route path="/profile/id" element={<Profile mode="friend" />} />
         </Routes>
       </AppLayout>
       {/*<Sidebar />  하단 고정 */}
