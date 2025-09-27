@@ -1,8 +1,10 @@
 export default function Header() {
   return (
-    <header className="p-4 flex justify-between items-center pt-[env(safe-area-inset-top)]">
-      <h1 className="text-headline-1 text-gray-800 !text-2xl">친구</h1>
-      <div className="flex space-x-4 ">
+    <header className="!mx-2 !my-3 flex justify-between items-center pt-[env(safe-area-inset-top)]">
+      <h1 className="text-headline-1 !font-semibold text-gray-800 !text-2xl">
+        친구
+      </h1>
+      <div className="flex gap-x-3 ">
         {[
           { src: "/images/magnifying.svg", alt: "검색" },
           { src: "/images/music.svg", alt: "뮤직" },
@@ -14,11 +16,7 @@ export default function Header() {
             type="button"
             className="w-6 h-[24px] active:scale-95 transition"
           >
-            <img
-              src={i.src}
-              alt={i.alt}
-              className="w-5 h-5 pointer-events-none"
-            />
+            <img src={i.src} alt={i.alt} className="pointer-events-none" />
           </button>
         ))}
       </div>

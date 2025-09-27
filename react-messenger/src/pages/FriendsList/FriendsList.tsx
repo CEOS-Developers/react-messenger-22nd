@@ -70,7 +70,7 @@ export default function FriendsList() {
   return (
     <div className="select-none bg-white px-4">
       {/* 내 프로필 */}
-      <div className="pb-2">
+      <div className="pb-2 !mb-3">
         <div className="flex items-center justify-between px-4">
           <MeCard />
           <img src="/images/multi.svg" alt="multiProfile" />

@@ -16,10 +16,10 @@ export function DefaultFooter({
   ];
 
   return (
-    <nav className="sticky bottom-0 z-10 bg-white border-t">
-      <div className="rounded-t-2xl bg-yellow-800">
-        <div className="pb-[env(safe-area-inset-bottom)]">
-          <div className="grid grid-cols-5 h-14 w-full">
+    <nav className="sticky bottom-0 z-10 w-[375px] bg-transparent">
+      <div className="rounded-t-[16px] bg-yellow-800">
+        <div className="h-[88px] !px-7 !pt-4 pb-[env(safe-area-inset-bottom)]">
+          <div className="grid grid-cols-5 gap-x-[15px] h-14 w-full">
             {tabs.map((t) => {
               const isActive = t.key === active;
               return (
@@ -28,7 +28,7 @@ export function DefaultFooter({
                   type="button"
                   onClick={() => onTab?.(t.key)}
                   className={[
-                    "flex items-center justify-center",
+                    "w-[50px] h-[48px]",
                     "active:scale-95 transition",
                   ].join(" ")}
                 >
@@ -36,7 +36,7 @@ export function DefaultFooter({
                     src={t.src}
                     alt={t.alt}
                     className={[
-                      "w-6 h-6 pointer-events-none",
+                      "pointer-events-none",
                       isActive ? "opacity-100" : "opacity-40",
                     ].join(" ")}
                   />

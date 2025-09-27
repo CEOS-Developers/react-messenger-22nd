@@ -1,12 +1,16 @@
 import { useFriends } from "../../../store/friendsStore";
-import Avatar from "../../../components/Avatar";
+//import Avatar from "../../../components/Avatar";
+import { Link } from "react-router-dom";
 
 export default function MeCard() {
   const me = useFriends((s) => s.me);
   if (!me) return null;
 
   return (
-    <div className="flex items-center gap-3 px-4 py-2">
+    <Link
+      to={`/profile/${encodeURIComponent(me.name)}`}
+      className="flex items-center gap-3 px-4 py-2"
+    >
       {/* <Avatar src={me.avatar} alt={me.name} /> */}
       <img src="/images/bigAvatar.svg" alt={me.name} />
       <div className="min-w-0 flex-1 mt-200">
@@ -26,6 +30,6 @@ export default function MeCard() {
           </span>
         </div>
       )} */}
-    </div>
+    </Link>
   );
 }
