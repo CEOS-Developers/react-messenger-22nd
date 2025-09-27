@@ -1,4 +1,6 @@
+import { useState, useEffect, useRef } from "react";
 import ProfileIcon from "../../assets/icons/ContactAction/ProfileIcon";
+import ShowAllIcon from "../../assets/icons/ShowAllIcon";
 
 interface RecievedChatProps {
   text: string;
@@ -6,19 +8,44 @@ interface RecievedChatProps {
 }
 
 const RecievedChat = ({ text, time }: RecievedChatProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+  const textRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      const el = textRef.current;
+      // 줄 잘림 감지
+      setIsOverflowing(el.scrollHeight > el.clientHeight);
+    }
+  }, [text]);
+
   return (
     <div className="flex flex-row items-end w-full mt-[8px]">
       <ProfileIcon className="w-[24px] h-[24px]" />
-      <div className="body-1 rounded-[16px] bg-[#EFEFF3] text-gray-800 w-auto max-w-[251px] h-auto min-h-[34px] max-h-[346px] pr-[12px] pl-[12px] pb-[6px] pt-[6px] ml-[12px]">
-        {text}
-      </div>
-      <div>
-        {time && (
-          <span className="bottom-0 ml-[8px] right-[-40px] body-3 text-gray-300">
-            {time}
-          </span>
+
+      <div className="body-1 rounded-[16px] bg-[#EFEFF3] text-gray-800 w-auto max-w-[251px] min-h-[34px] pr-[12px] pl-[12px] pb-[6px] pt-[6px] ml-[12px] relative">
+        <div
+          ref={textRef}
+          className={`whitespace-pre-line ${isExpanded ? "" : "line-clamp-17"}`}
+        >
+          {text}
+        </div>
+
+        {/* 전체보기 버튼 */}
+        {!isExpanded && isOverflowing && (
+          <button
+            onClick={() => setIsExpanded(true)}
+            className="w-full flex flex-row items-center justify-between body-3 text-gray-600 mt-1 no-underline"
+          >
+            <span>전체보기</span>
+            <ShowAllIcon />
+          </button>
         )}
       </div>
+
+      {/* 시간 */}
+      {time && <span className="ml-[8px] body-3 text-gray-300">{time}</span>}
     </div>
   );
 };
