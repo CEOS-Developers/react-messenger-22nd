@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 function ChattingRoom() {
   const navigate = useNavigate();
   return (
-    <div className="bg-light-gray mx-auto min-h-screen w-full max-w-[375px] pb-[65px]">
+    <div className="bg-light-gray font-pretendard mx-auto min-h-screen w-full max-w-[375px] pb-[65px]">
       {/* 상단 헤더 재사용*/}
       <Header
         title={

@@ -7,11 +7,12 @@ import Sidebar from './pages/sidebar/Sidebar';
 import ChattingRoom from './pages/chat/ChattingRoom';
 
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Profile from './pages/friendList/profile';
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  const hideSidebarPaths = ['/chattingroom']; // 숨기고 싶은 페이지 경로
-  const showSidebar = !hideSidebarPaths.includes(location.pathname);
+  const hideSidebarPaths = ['/chattingroom', '/profile']; // 숨기고 싶은 페이지 경로
+  const showSidebar = !hideSidebarPaths.some((path) => location.pathname.startsWith(path)); //pathname이 /myprofile/123 이런식이어도 적용됨
 
   return (
     <div className="relative">
@@ -33,6 +34,8 @@ export default function App() {
           <Route path="/call" element={<Call />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/chattingroom" element={<ChattingRoom />} />
+          <Route path="/profile/me" element={<Profile mode="my" />} />
+          <Route path="/profile/:id" element={<Profile mode="friend" />} />
         </Routes>
       </AppLayout>
       {/*<Sidebar />  하단 고정 */}
