@@ -1,15 +1,8 @@
 import { useEffect, useRef } from 'react';
 import DefaultProfile from '@/assets/svgs/profile/profileIMG-default.svg';
-// import { useChat, MY_ID } from '@/context/ChatContext';
 import { MY_ID } from '@/type/ChatType';
 import { useChat } from '@/hooks/useChat';
-
-// Date 객체 → "YYYY년 M월 D일"
-const formatDate = (date: Date) => `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
-// Date 객체 -> "00:00"
-const formatTime = (date: Date) => {
-  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-};
+import { formatDate, formatTime } from '@/type/DateType';
 
 // minutes 일치 비교 (for rendering 채팅메시지)
 const isSameMinute = (d1: Date, d2: Date) => {

@@ -1,5 +1,4 @@
 import { createContext } from 'react';
-// import type { ChatContextType } from '@/context/ChatContext';
 
 interface ChatContextType {
   messages: Message[];
