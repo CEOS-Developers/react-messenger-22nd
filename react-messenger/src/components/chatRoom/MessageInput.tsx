@@ -18,9 +18,13 @@ const MessageInput = ({ onSend }: MessageInputProps) => {
   };
 
   return (
-    <div className="h-[84px] w-[375px] relative">
-      <div className="h-[62px] bg-white absolute bottom-0 left-0 w-full"></div>
-      <div className="h-[44px] w-[343px] bg-[rgba(224,224,224,0.3)] backdrop-blur-[20px] rounded-[100px] flex items-center px-3 absolute left-1/2 bottom-[62px] translate-x-[-50%] translate-y-1/2">
+    <div className="w-full aspect-[375/84] relative">
+      <div className="w-full aspect-[375/62] bg-white absolute bottom-0 left-0"></div>
+      <div
+        className="w-[calc(100%-32px)] mx-4 aspect-[343/44]
+                  bg-[rgba(224,224,224,0.3)] backdrop-blur-[20px] 
+                  rounded-[100px] flex items-center px-3"
+      >
         <button className="w-6 h-6 flex items-center justify-center mr-[12px]">
           <PlusIcon />
         </button>

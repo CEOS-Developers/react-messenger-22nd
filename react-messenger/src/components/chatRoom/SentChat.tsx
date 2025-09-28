@@ -19,16 +19,14 @@ const SentChat = ({ text, time }: SentChatProps) => {
   }, [text]);
 
   return (
-    <div className="flex justify-end w-full mt-[8px]">
-      <div>
-        {time && (
-          <span className="bottom-0 ml-[8px] right-[-40px] body-3 text-gray-300">
-            {time}
-          </span>
-        )}
-      </div>
+    <div className="flex justify-end items-end w-full mt-[8px]">
+      {time && <span className="mr-[8px] body-3 text-gray-300">{time}</span>}
 
-      <div className="body-1 rounded-[16px] bg-main-green text-white w-auto max-w-[251px] min-h-[34px] pr-[12px] pl-[12px] pb-[6px] pt-[6px] ml-[12px] relative">
+      <div
+        className="body-1 rounded-[16px] bg-main-green text-white
+                    w-auto max-w-[251px] min-h-[34px]
+                    px-[12px] py-[6px] relative"
+      >
         <div
           ref={textRef}
           className={`whitespace-pre-line ${isExpanded ? "" : "line-clamp-17"}`}
@@ -36,7 +34,6 @@ const SentChat = ({ text, time }: SentChatProps) => {
           {text}
         </div>
 
-        {/* 전체보기 버튼 */}
         {!isExpanded && isOverflowing && (
           <button
             onClick={() => setIsExpanded(true)}

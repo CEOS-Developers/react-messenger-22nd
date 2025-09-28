@@ -12,13 +12,16 @@ const ChatRoom = () => {
   const [messages, setMessages] = useState<Message[]>(messageData as Message[]);
 
   // 메세지 전송 시 자동 스크롤
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // 자동 스크롤 구현
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
   }, [messages]);
 
+  // 전송 로직
   const handleSend = (text: string) => {
     const now = new Date();
     const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(
@@ -42,9 +45,12 @@ const ChatRoom = () => {
   };
 
   return (
-    <div className="w-[375px] h-[812px] bg-light-green relative flex flex-col">
+    <div className="h-full aspect-[375/812] bg-light-green relative flex flex-col">
       <ContactAction />
-      <div className="flex-1 overflow-y-auto pt-[8px] pb-[92px] pr-[16px] pl-[16px]">
+      <div
+        ref={containerRef}
+        className="flex-1 overflow-y-auto pt-[8px] pb-[25%] pr-[16px] pl-[16px] scrollbar-hide"
+      >
         {messages.map((msg, index) => {
           const prevMsg = messages[index - 1];
           const nextMsg = messages[index + 1];
@@ -71,7 +77,6 @@ const ChatRoom = () => {
             </div>
           );
         })}
-        <div ref={messagesEndRef} />
       </div>
       <div className="absolute bottom-0 left-0 w-full">
         <MessageInput onSend={handleSend} />
