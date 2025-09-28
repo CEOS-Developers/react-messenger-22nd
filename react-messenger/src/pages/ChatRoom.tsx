@@ -6,6 +6,7 @@ import SentChat from "../components/chatRoom/SentChat";
 import DateDivider from "../components/chatRoom/DateDivider";
 import type { Message } from "../types/chat";
 import messageData from "../data/messages.json";
+import userData from "../data/users.json";
 
 const ChatRoom = () => {
   // Message 타입을 이용하여 렌더링
@@ -60,6 +61,8 @@ const ChatRoom = () => {
           const showTime =
             !nextMsg || nextMsg.time !== msg.time || nextMsg.type !== msg.type;
 
+          const user = userData.find((u) => u.id === msg.userId);
+
           return (
             <div key={msg.id}>
               {showDivider && <DateDivider date={msg.createdAt} />}
@@ -72,6 +75,7 @@ const ChatRoom = () => {
                 <RecievedChat
                   text={msg.text}
                   time={showTime ? msg.time : undefined}
+                  avatar={user?.avatar}
                 />
               )}
             </div>
