@@ -1,0 +1,38 @@
+[
+  {
+    "userId": "user-1",
+    "name": "홍길동",
+    "profileImage": "",
+    "statusMessage": "",
+    "birthday": "1995-10-26",
+    "isFavorite": true,
+    "hasUpdatedProfile": false
+  },
+  {
+    "userId": "user-2",
+    "name": "김철수",
+    "profileImage": "",
+    "statusMessage": "상태메시지입니다",
+    "birthday": "1993-05-12",
+    "isFavorite": false,
+    "hasUpdatedProfile": true
+  },
+  {
+    "userId": "user-3",
+    "name": "동길동",
+    "profileImage": "",
+    "statusMessage": "동길동!",
+    "birthday": "1990-08-30",
+    "isFavorite": true,
+    "hasUpdatedProfile": true
+  },
+  {
+    "userId": "user-4",
+    "name": "박민수",
+    "profileImage": "",
+    "statusMessage": "커피 한 잔의 여유",
+    "birthday": "1992-10-27",
+    "isFavorite": false,
+    "hasUpdatedProfile": false
+  }
+]

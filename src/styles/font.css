@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --text-title4-sm: 16px;
+  --text-title4-sm--line-height: 22px;
+  --text-title4-sm-font-weight: 600;
+  --text-title4-sm-letter-spacing: 0.32px;
+
+  --text-title2-sb: 20px;
+  --text-title2-sb--line-height: 30px;
+  --text-title2-sb--font-weight: 600;
+  --text-title2-sb--letter-spacing: 0.4px;
+
+  --text-title1-sb: 16px;
+  --text-title1-sb--line-height: 24px;
+  --text-title1-sb--font-weight: 600;
+  --text-title2-sb--letter-spacing: 0.32px;
+
+  --text-title-sb: 14px;
+  --text-title-sb--line-height: 22px;
+  --text-title-sb--font-weight: 600;
+  --text-title2-sb--letter-spacing: 0.28px;
+
+  --text-body-med: 14px;
+  --text-body-med--line-height: 22px;
+  --text-body-med--font-weight: 500;
+  --text-body-med--letter-spacing: 0.28px;
+
+  --text-body-sb: 12px;
+  --text-body-sb--line-height: 18px;
+  --text-body-sb--font-weight: 600;
+  --text-body-sb--letter-spacing: 0.24px;
+
+  --text-body3-reg: 12px;
+  --text-body3-reg--line-height: 18px;
+  --text-body3-reg--font-weight: 400;
+  --text-body3-reg--letter-spacing: 0.24px;
+
+  --text-body-reg: 12px;
+  --text-body-reg--line-height: 18px;
+  --text-body-reg--font-weight: 500;
+  --text-body-reg--letter-spacing: 0.24px;
+
+  --text-caption1-reg: 12px;
+  --text-caption1-reg--line-height: 16px;
+  --text-caption1-reg--font-weight: 400;
+  --text-caption1-reg--letter-spacing: 0.24px;
+
+  --text-caption2-reg: 10px;
+  --text-caption2-reg--line-height: 16px;
+  --text-caption2-reg--font-weight: 400;
+  --text-caption2-reg--letter-spacing: 0.2px;
+}

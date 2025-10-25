@@ -1,0 +1,82 @@
+[
+  {
+    "roomId": "room-1",
+    "name": "홍길동",
+    "isFavorite": true,
+    "participants": [{ "userId": "user-1", "name": "홍길동" }],
+    "messages": [
+      {
+        "msgId": "msg-1",
+        "senderId": "user-1",
+        "senderName": "홍길동",
+        "content": "안녕하세요 홍길동입니다~",
+        "type": "text",
+        "sentAt": "2025-09-20T10:25:00"
+      },
+      {
+        "msgId": "msg-2",
+        "senderId": "user-1",
+        "senderName": "홍길동",
+        "content": "안녕하세요 또 홍길동입니다~",
+        "type": "text",
+        "sentAt": "2025-09-25T10:26:00"
+      },
+      {
+        "msgId": "msg-3",
+        "senderId": "user-1",
+        "senderName": "홍길동",
+        "content": "안녕하세요 또길동입니다~",
+        "type": "text",
+        "sentAt": "2025-09-25T10:26:00"
+      },
+      {
+        "msgId": "msg-4",
+        "senderId": "user-1",
+        "senderName": "홍길동",
+        "content": "안녕하세요 똥길동입니다~",
+        "type": "text",
+        "sentAt": "2025-09-25T10:27:00"
+      }
+    ]
+  },
+  {
+    "roomId": "room-2",
+    "name": "김철수",
+    "isFavorite": false,
+    "participants": [{ "userId": "user-2", "name": "김철수" }],
+    "messages": [
+      {
+        "msgId": "msg-5",
+        "senderId": "user-2",
+        "senderName": "김철수",
+        "content": "안녕하세요 김철수입니다~",
+        "type": "text",
+        "sentAt": "2025-09-26T11:00:00"
+      },
+      {
+        "msgId": "msg-6",
+        "senderId": "user-2",
+        "senderName": "김철수",
+        "content": "김철수입니다~",
+        "type": "text",
+        "sentAt": "2025-09-26T12:00:00"
+      }
+    ]
+  },
+  {
+    "roomId": "room-3",
+    "name": "동길동",
+    "isFavorite": false,
+    "participants": [{ "userId": "user-3", "name": "동길동" }],
+    "messages": [
+      {
+        "msgId": "msg-7",
+        "senderId": "user-3",
+        "senderName": "동길동",
+        "content": "동길동입니다~",
+        "type": "text",
+        "sentAt": "2025-09-22T10:10:00"
+      }
+    ]
+  }
+]
