@@ -1,0 +1,77 @@
+[
+  {
+    "id": "chat1",
+    "avatar": "pfp1",
+    "name": "장희연, 이서아",
+    "memberIds": ["000", "001", "002"],
+    "messages": [
+      {
+        "id": "m1",
+        "senderName": "장희연",
+        "senderId": "001",
+        "text": "안녕하세요 혹시 오늘 이미지 전달주시나요?",
+        "sentAt": "오후 4:05",
+        "unreadBy": 1,
+        "iRead": true
+      },
+      {
+        "id": "m2",
+        "senderName": "",
+        "senderId": "000",
+        "text": "넵!",
+        "sentAt": "",
+        "unreadBy": 0,
+        "iRead": true
+      },
+      {
+        "id": "m3",
+        "senderName": "",
+        "senderId": "000",
+        "text": "곧 전달드리겠습니다.",
+        "sentAt": "오후 4:05",
+        "unreadBy": 1,
+        "iRead": true
+      }
+    ]
+  },
+  {
+    "id": "chat2",
+    "avatar": "pfp0",
+    "name": "이서아 ",
+    "memberIds": ["000", "001"],
+    "messages": [
+      {
+        "id": "m1",
+        "senderId": "001",
+        "text": "안녕하세요 이서아입니다. 다름이 아니라 이전에 요청주셨던 자료에 관련해서 문의할 것이 있어 연락드립니다.",
+        "sentAt": "오후 2:01",
+        "unreadBy": 0,
+        "iRead": false
+      }
+    ]
+  },
+  {
+    "id": "chat3",
+    "avatar": "pfp0",
+    "name": "조아람",
+    "memberIds": ["000", "003"],
+    "messages": [
+      {
+        "id": "m1",
+        "senderId": "003",
+        "text": "안녕하세요 매니저님",
+        "sentAt": "",
+        "unreadBy": 0,
+        "iRead": false
+      },
+      {
+        "id": "m2",
+        "senderId": "004",
+        "text": "매니저님 보고자료 준비 부탁드립니다.",
+        "sentAt": "오전 11:23",
+        "unreadBy": 0,
+        "iRead": false
+      }
+    ]
+  }
+]
