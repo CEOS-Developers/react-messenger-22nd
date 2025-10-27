@@ -1,0 +1,20 @@
+[
+  {
+    "id": "qa1",
+    "label": "친구 추가",
+    "icon": "/images/icons/addFriend.svg",
+    "action": "open:add-friend"
+  },
+  {
+    "id": "qa2",
+    "label": "내 QR코드",
+    "icon": "/images/icons/qrcode.svg",
+    "action": "open:my-qr"
+  },
+  {
+    "id": "qa3",
+    "label": "생일",
+    "icon": "/images/icons/birthday.svg",
+    "action": "filter:birthday"
+  }
+]

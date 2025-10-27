@@ -1,0 +1,12 @@
+{
+  "id": "me",
+  "name": "최무헌",
+  "avatar": "/images/me.png",
+  "background": "/images/profile/bg_me.jpg",
+  "status": "오늘도 개발 중…",
+  "music": { "title": "Holiday", "artist": "Turnover" },
+  "links": [
+    { "type": "instagram", "url": "https://instagram.com/username" },
+    { "type": "github", "url": "https://github.com/username" }
+  ]
+}

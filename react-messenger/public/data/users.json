@@ -1,0 +1,85 @@
+[
+  {
+    "id": "me",
+    "name": "최무헌",
+    "avatar": "/images/me.png",
+    "status": "오늘도 개발 중",
+    "isUpdated": false,
+    "isBirthday": false,
+    "music": { "title": "Holiday", "artist": "Turnover" },
+    "groups": ["me"]
+  },
+  {
+    "id": "u1",
+    "name": "김다은",
+    "avatar": "/images/u1.png",
+    "status": "스터디 중입니다",
+    "isUpdated": true,
+    "isBirthday": false,
+    "groups": ["친구"]
+  },
+  {
+    "id": "u2",
+    "name": "박지훈",
+    "avatar": "/images/u2.png",
+    "status": "👨‍💻 TypeScript 최고",
+    "isUpdated": false,
+    "isBirthday": false,
+    "music": { "title": "Blueming", "artist": "IU" },
+    "groups": ["회사", "FE"]
+  },
+  {
+    "id": "u3",
+    "name": "이수빈",
+    "avatar": "/images/u3.png",
+    "status": "오늘도 개발 중",
+    "isUpdated": false,
+    "isBirthday": true,
+    "groups": ["가족"]
+  },
+  {
+    "id": "u4",
+    "name": "최유진",
+    "avatar": "/images/u4.png",
+    "status": "카페 탐방러 ☕",
+    "isUpdated": false,
+    "isBirthday": false,
+    "groups": ["친구", "동아리"]
+  },
+  {
+    "id": "u5",
+    "name": "정해린",
+    "avatar": "/images/u5.png",
+    "status": "오늘도 커피 두 잔",
+    "isUpdated": false,
+    "isBirthday": false,
+    "groups": ["회사", "디자인"]
+  },
+  {
+    "id": "u6",
+    "name": "한도윤",
+    "avatar": "/images/u6.png",
+    "status": "런치 러너 🍱",
+    "isUpdated": true,
+    "isBirthday": false,
+    "groups": ["친구"]
+  },
+  {
+    "id": "u7",
+    "name": "오서준",
+    "avatar": "/images/u7.png",
+    "status": "리액트 네버엔딩",
+    "isUpdated": false,
+    "isBirthday": false,
+    "groups": ["회사", "FE"]
+  },
+  {
+    "id": "u8",
+    "name": "이지아",
+    "avatar": "/images/u8.png",
+    "status": "필라테스 가는 중",
+    "isUpdated": false,
+    "isBirthday": false,
+    "groups": ["가족"]
+  }
+]
